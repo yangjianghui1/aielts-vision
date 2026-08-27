@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
+import logoAsset from "@/assets/AIELTS-logo.png.asset.json";
 
 const ENTRIES = [
   { title: "0 元快速测评", desc: "10 分钟看清当前英语能力水平", price: "免费" },

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/AIELTS-logo.png.asset.json";
 
 const NAV = [
   { label: "产品能力", href: "#capability" },
@@ -27,14 +28,8 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#top" className="flex items-center gap-2">
-          <span
-            className="grid h-8 w-8 place-items-center rounded-lg font-display text-sm font-extrabold text-primary-foreground"
-            style={{ background: "var(--gradient-brand)" }}
-          >
-            A
-          </span>
-          <span className="font-display text-lg font-extrabold tracking-tight">AIELTS 语焉</span>
+        <a href="#top" className="flex items-center">
+          <img src={logoAsset.url} alt="AIELTS 语焉" className="h-7 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-7 md:flex">
