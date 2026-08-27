@@ -77,13 +77,7 @@ export function Footer() {
     <footer className="border-t border-border py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-xs text-muted-foreground sm:flex-row">
         <div className="flex items-center gap-2">
-          <span
-            className="grid h-6 w-6 place-items-center rounded-md font-display text-[10px] font-extrabold text-primary-foreground"
-            style={{ background: "var(--gradient-brand)" }}
-          >
-            A
-          </span>
-          <span className="font-display font-bold text-foreground">AIELTS 语焉</span>
+          <img src={logoAsset.url} alt="AIELTS 语焉" className="h-6 w-auto" />
         </div>
         <p>© 2026 语焉雅思 · 获英国文化教育协会（British Council）支持</p>
       </div>
