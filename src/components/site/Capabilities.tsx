@@ -208,7 +208,7 @@ function Panel({ cap }: { cap: Cap }) {
 
 export function Capabilities() {
   const [active, setActive] = useState(0);
-  const cap = CAPS[active];
+  const cap = CAPS[active] ?? CAPS[0]!;
 
   return (
     <section id="capability" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
