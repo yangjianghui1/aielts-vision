@@ -1,24 +1,47 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Stats } from "@/components/site/Stats";
+import { Capabilities } from "@/components/site/Capabilities";
+import { MockScroll } from "@/components/site/MockScroll";
+import { Pricing } from "@/components/site/Pricing";
+import { Stories } from "@/components/site/Stories";
+import { Faq } from "@/components/site/Faq";
+import { StartCta, Footer } from "@/components/site/StartCta";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "AIELTS 语焉 · AI 雅思测评与全真模考平台";
+const DESC =
+  "语焉雅思用 AI 测评、英国文化教育协会遴选题库与 40 套全真模考，提供四维度评分与个性化提分路径，帮助中国考生更快看清水平、持续提分。";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <Stats />
+        <Capabilities />
+        <MockScroll />
+        <Pricing />
+        <Stories />
+        <Faq />
+        <StartCta />
+      </main>
+      <Footer />
     </div>
   );
 }
