@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
+import wechatQrAsset from "@/assets/wechat-qr.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -55,14 +56,15 @@ export function Faq() {
               报名前，大家都在问。
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              还有别的问题？发邮件给我们，几小时内会有真人回复。
+              还有别的问题？加客服老师微信，真人在线答疑，领取雅思学习资料。
             </p>
-            <a
-              href="mailto:hello@aielts.cn"
-              className="mt-4 inline-block font-display text-sm font-bold text-primary hover:text-primary-bright"
-            >
-              hello@aielts.cn
-            </a>
+            <div className="mt-5 inline-block rounded-2xl border border-border bg-card p-3 shadow-sm">
+              <img
+                src={wechatQrAsset.url}
+                alt="语焉 AIELTS 客服微信二维码"
+                className="h-36 w-36 rounded-xl object-contain"
+              />
+            </div>
           </div>
         </Reveal>
 
