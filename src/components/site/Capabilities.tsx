@@ -6,6 +6,7 @@ import { SampleEssays } from "@/components/site/SampleEssays";
 import { ReadingMock } from "@/components/site/ReadingMock";
 import { WritingFeedback } from "@/components/site/WritingFeedback";
 import { SpeakingSamples } from "@/components/site/SpeakingSamples";
+import { ListeningMock } from "@/components/site/ListeningMock";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -15,7 +16,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening";
 };
 
 const CAPS: Cap[] = [
@@ -67,11 +68,11 @@ const CAPS: Cap[] = [
   {
     id: "vocab",
     no: "06",
-    name: "AI 词汇能力分析",
-    tag: "词汇画像",
-    desc: "从你的真实产出中提取词汇广度、学术词占比与重复率，给出目标分段的替换词表。",
-    meta: "AWL 覆盖度追踪",
-    panel: "vocab",
+    name: "AI 听力解析",
+    tag: "逐题 AI 讲解",
+    desc: "真实机考听力界面，作答后每道题都有 AI 逐题解析：为什么对、为什么错、原文依据在哪。",
+    meta: "4 个 Part · 40 题精讲",
+    panel: "listening",
   },
   {
     id: "path",
@@ -117,6 +118,10 @@ function Panel({ cap }: { cap: Cap }) {
 
   if (cap.panel === "speak-sample") {
     return <SpeakingSamples />;
+  }
+
+  if (cap.panel === "listening") {
+    return <ListeningMock />;
   }
 
   if (cap.panel === "vocab") {
