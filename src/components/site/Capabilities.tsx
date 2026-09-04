@@ -7,6 +7,7 @@ import { ReadingMock } from "@/components/site/ReadingMock";
 import { WritingFeedback } from "@/components/site/WritingFeedback";
 import { SpeakingSamples } from "@/components/site/SpeakingSamples";
 import { ListeningMock } from "@/components/site/ListeningMock";
+import { ReadingAnalysis } from "@/components/site/ReadingAnalysis";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -16,7 +17,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading";
 };
 
 const CAPS: Cap[] = [
@@ -77,11 +78,11 @@ const CAPS: Cap[] = [
   {
     id: "path",
     no: "07",
-    name: "AI 学习路径规划",
-    tag: "按考试日期倒推",
-    desc: "根据诊断结果与考试日期生成周计划，漏练自动重排，不制造愧疚感。",
-    meta: "12 周自适应",
-    panel: "path",
+    name: "AI 阅读解析",
+    tag: "逐题原文定位",
+    desc: "真实机考阅读界面，TFNG、选择、匹配各题型逐题 AI 讲解，中英文反馈一键切换，错因直接定位到原文句子。",
+    meta: "3 个 Part · 40 题精讲",
+    panel: "reading",
   },
   {
     id: "boost",
@@ -122,6 +123,10 @@ function Panel({ cap }: { cap: Cap }) {
 
   if (cap.panel === "listening") {
     return <ListeningMock />;
+  }
+
+  if (cap.panel === "reading") {
+    return <ReadingAnalysis />;
   }
 
   if (cap.panel === "vocab") {
