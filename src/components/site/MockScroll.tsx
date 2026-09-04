@@ -14,7 +14,7 @@ export function MockScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [maxTranslate, setMaxTranslate] = useState(0);
-  const [sectionHeight, setSectionHeight] = useState(window.innerHeight);
+  const [sectionHeight, setSectionHeight] = useState(0);
 
   useEffect(() => {
     const measure = () => {

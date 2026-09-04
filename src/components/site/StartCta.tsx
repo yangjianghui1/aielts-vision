@@ -10,9 +10,9 @@ const ENTRIES = [
 
 export function StartCta() {
   return (
-    <section id="cta" className="relative overflow-hidden py-24 md:py-32" style={{ background: "var(--navy)" }}>
+    <section id="cta" className="relative overflow-hidden py-16 md:py-20" style={{ background: "var(--navy)" }}>
       <div
-        className="pointer-events-none absolute -top-32 left-1/2 h-[540px] w-[540px] -translate-x-1/2 rounded-full opacity-45 blur-3xl"
+        className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
         style={{ background: "var(--gradient-deep)" }}
       />
       <div className="relative mx-auto max-w-3xl px-5 text-center">
@@ -21,29 +21,27 @@ export function StartCta() {
             Start Small
           </div>
           <h2
-            className="mt-3 font-display text-[clamp(2rem,4.4vw,3.25rem)] leading-[1.1] font-extrabold"
+            className="mt-3 font-display text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] font-extrabold"
             style={{ color: "#ffffff" }}
           >
-            先试一试，
-            <br />
-            再决定更适合你的备考方式。
+            先试一试，再选择更适合你的备考方式
           </h2>
-          <p className="mt-5 text-base" style={{ color: "var(--lilac)" }}>
-            低门槛体验，快速了解当前水平、熟悉真实考试流程。无需信用卡。
+          <p className="mx-auto mt-4 max-w-xl text-base" style={{ color: "var(--lilac)" }}>
+            从免费测评到迷你模考，用低门槛体验快速了解当前水平、熟悉真实考试流程，再决定下一步备考方案。
           </p>
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {ENTRIES.map((e) => (
               <a
                 key={e.title}
                 href="#"
-                className="group rounded-2xl border p-6 text-left transition-colors"
+                className="group rounded-2xl border p-5 text-left transition-colors"
                 style={{ borderColor: "rgba(220,220,232,0.22)", background: "rgba(255,255,255,0.05)" }}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-lg font-bold" style={{ color: "#ffffff" }}>
+                  <span className="font-display text-base font-bold" style={{ color: "#ffffff" }}>
                     {e.title}
                   </span>
                   <ArrowRight
@@ -51,7 +49,7 @@ export function StartCta() {
                     style={{ color: "var(--accent)" }}
                   />
                 </div>
-                <p className="mt-2 text-sm" style={{ color: "var(--lilac)" }}>
+                <p className="mt-1.5 text-sm" style={{ color: "var(--lilac)" }}>
                   {e.desc}
                 </p>
               </a>
@@ -62,7 +60,7 @@ export function StartCta() {
         <Reveal delay={160}>
           <a
             href="#"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
             style={{ background: "var(--gradient-brand)" }}
           >
             立即免费注册
