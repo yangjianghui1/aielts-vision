@@ -31,12 +31,12 @@ export function MockScroll() {
   }, []);
 
   return (
-    <section id="mock" ref={wrapRef} className="relative h-[420vh] bg-secondary/40">
+    <section id="mock" ref={wrapRef} className="relative h-[320vh] bg-secondary/40">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-6xl px-5">
-          <div className="eyebrow">Mock Test · 40 套全真模考</div>
-          <h2 className="mt-3 max-w-2xl font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold">
-            横向走完整条雅思考试链路。
+          <div className="eyebrow">Learning Loop · 五步提分闭环</div>
+          <h2 className="mt-3 max-w-3xl font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold">
+            摸底定位 → 专项训练 → 知识补全 → 全真模考校验 → 复盘闭环
           </h2>
         </div>
 
