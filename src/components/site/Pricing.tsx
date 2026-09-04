@@ -66,44 +66,50 @@ export function Pricing() {
         {PLANS.map((p, i) => (
           <Reveal key={p.name} delay={i * 90}>
             <div
-              className="surface-card lift-on-hover relative h-full p-8"
+              className="surface-card lift-on-hover group relative h-full p-8 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
               style={p.featured ? { borderColor: "var(--primary)", boxShadow: "var(--shadow-lift)" } : undefined}
             >
               <span
-                className="absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-primary-foreground"
-                style={{ background: p.featured ? "var(--primary)" : "var(--ink)" }}
+                className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-primary-foreground transition-colors group-hover:bg-white group-hover:text-navy ${
+                  p.featured ? "bg-primary" : "bg-ink"
+                }`}
               >
                 {p.badge}
               </span>
 
-              <div className="eyebrow">Membership Plan</div>
+              <div className="eyebrow transition-colors group-hover:text-white/80">Membership Plan</div>
               <h3 className="mt-2 font-display text-2xl font-extrabold">{p.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
+              <p className="mt-1 text-sm text-muted-foreground transition-colors group-hover:text-white/85">
+                {p.tagline}
+              </p>
 
               <div className="mt-6 flex items-end gap-1">
                 <span className="font-display text-5xl font-extrabold">{p.price}</span>
-                <span className="pb-2 text-sm text-muted-foreground">{p.unit}</span>
+                <span className="pb-2 text-sm text-muted-foreground transition-colors group-hover:text-white/80">
+                  {p.unit}
+                </span>
               </div>
 
-              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border">
+              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border transition-colors group-hover:border-white/20">
                 {p.rows.map(([v, l]) => (
-                  <div key={l} className="bg-card px-3 py-4 text-center">
-                    <div className="font-display text-lg font-extrabold text-primary">{v}</div>
-                    <div className="mt-1 text-[11px] leading-tight text-muted-foreground">{l}</div>
+                  <div key={l} className="bg-card px-3 py-4 text-center transition-colors group-hover:bg-white/10">
+                    <div className="font-display text-lg font-extrabold text-primary transition-colors group-hover:text-white">
+                      {v}
+                    </div>
+                    <div className="mt-1 text-[11px] leading-tight text-muted-foreground transition-colors group-hover:text-white/80">
+                      {l}
+                    </div>
                   </div>
                 ))}
               </div>
 
-              <p className="mt-5 text-sm font-semibold">{p.service}</p>
+              <p className="mt-5 text-sm font-semibold transition-colors group-hover:text-white/90">{p.service}</p>
 
               <a
                 href="#cta"
-                className="mt-7 block rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-colors"
-                style={
-                  p.featured
-                    ? { background: "var(--primary)", color: "var(--primary-foreground)" }
-                    : { border: "1px solid var(--border)" }
-                }
+                className={`mt-7 block rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-colors group-hover:bg-white group-hover:text-navy ${
+                  p.featured ? "bg-primary text-primary-foreground" : "border border-border"
+                }`}
               >
                 {p.cta}
               </a>
