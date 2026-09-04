@@ -67,7 +67,7 @@ const SECTIONS: Section[] = [
 
 export function WritingFeedback() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const [perfOpen, setPerfOpen] = useState(false);
+  const [perfOpen, setPerfOpen] = useState(true);
 
   return (
     <div className="space-y-3 text-left">
