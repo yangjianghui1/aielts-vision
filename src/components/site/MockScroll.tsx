@@ -10,28 +10,45 @@ const CARDS = [
 
 export function MockScroll() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [maxTranslate, setMaxTranslate] = useState(0);
+  const [sectionHeight, setSectionHeight] = useState(window.innerHeight);
 
   useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      const container = containerRef.current;
+      if (!track || !container) return;
+      const max = Math.max(0, track.scrollWidth - container.clientWidth);
+      setMaxTranslate(max);
+      setSectionHeight(window.innerHeight + max + 80);
+    };
+
     const onScroll = () => {
       const el = wrapRef.current;
       if (!el) return;
-      const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       if (total <= 0) return;
-      setProgress(Math.min(Math.max(-rect.top / total, 0), 1));
+      setProgress(Math.min(Math.max(-el.getBoundingClientRect().top / total, 0), 1));
     };
+
+    measure();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", () => {
+      measure();
+      onScroll();
+    });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", measure);
     };
   }, []);
 
   return (
-    <section id="mock" ref={wrapRef} className="relative h-[420vh] bg-secondary/40">
+    <section id="mock" ref={wrapRef} className="relative bg-secondary/40" style={{ height: sectionHeight }}>
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-6xl px-5">
           <div className="eyebrow">Learning Loop · 五步提分闭环</div>
@@ -40,12 +57,12 @@ export function MockScroll() {
           </h2>
         </div>
 
-        <div className="mt-10 w-full overflow-visible">
+        <div ref={containerRef} className="mt-10 w-full overflow-visible">
           <div
+            ref={trackRef}
             className="flex gap-6 px-5"
             style={{
-              transform: `translateX(calc(${-progress * (CARDS.length - 1)} * (min(78vw, 24rem) + 1.5rem)))`,
-              transition: "transform 120ms linear",
+              transform: `translateX(${-progress * maxTranslate}px)`,
               width: "max-content",
             }}
           >
