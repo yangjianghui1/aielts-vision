@@ -18,7 +18,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading" | "courses";
 };
 
 const CAPS: Cap[] = [
@@ -85,6 +85,15 @@ const CAPS: Cap[] = [
     meta: "3 个 Part · 40 题精讲",
     panel: "reading",
   },
+  {
+    id: "courses",
+    no: "08",
+    name: "200+外教课程",
+    tag: "地道口语强输出",
+    desc: "每周滚动开播的外教直播课，覆盖四科技巧与地道表达，支持预约直播、回放复习与随堂练习。",
+    meta: "200+ 节 · 每周更新",
+    panel: "courses",
+  },
 ];
 
 function Panel({ cap }: { cap: Cap }) {
@@ -119,6 +128,10 @@ function Panel({ cap }: { cap: Cap }) {
 
   if (cap.panel === "reading") {
     return <ReadingAnalysis />;
+  }
+
+  if (cap.panel === "courses") {
+    return <CoursesMock />;
   }
 
   if (cap.panel === "vocab") {
