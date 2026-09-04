@@ -94,7 +94,7 @@ export function CoursesMock() {
   const [qIdx, setQIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
 
-  const quiz = QUIZ[qIdx];
+  const quiz = QUIZ[qIdx] ?? QUIZ[0]!;
   const goQuiz = (d: number) => {
     setQIdx((i) => (i + d + QUIZ.length) % QUIZ.length);
     setPicked(null);
