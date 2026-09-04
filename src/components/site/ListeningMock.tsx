@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CheckCircle2, ChevronLeft, ChevronRight, Info, Pause, Play, SquarePen, Volume2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Info, Pause, Play, SquarePen, Star, Volume2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Opt = { key: string; label: string };
@@ -23,7 +23,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "B",
     feedback:
-      "Not quite! The man says “I left medical school and went into teacher training college to be a science teacher”, so B - Teacher is the correct answer. The question asks about Heath's current job. While Heath initially considered being a doctor and even started medical school, he explicitly states that he left it to become a teacher. Your answer, A - Doctor, is incorrect because he decided not to pursue that career path.",
+      "不完全对！这个人说 I left medical school and went into teacher training college to be a science teacher，所以 B - Teacher 才是正确答案。问题问的是希思目前的工作。虽然希思最初考虑当医生，甚至开始了医学院学习，但他明确表示自己离开了那里去当老师。你的答案，A - Doctor，是错误的，因为他决定不再走那条职业道路。",
   },
   {
     no: 2,
