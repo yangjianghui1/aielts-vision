@@ -148,7 +148,7 @@ export function ListeningMock() {
             className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
             style={{ background: "var(--gradient-brand)" }}
           >
-            {translated ? "切换至英语" : "切换至英语"}
+            {translated ? "切换至中文" : "切换至英语"}
           </button>
         </div>
       </div>
