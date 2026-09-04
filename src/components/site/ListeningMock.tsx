@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CheckCircle2, ChevronLeft, ChevronRight, Info, Pause, Play, SquarePen, Volume2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Info, Pause, Play, SquarePen, Star, Volume2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Opt = { key: string; label: string };
@@ -23,7 +23,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "B",
     feedback:
-      "Not quite! The man says “I left medical school and went into teacher training college to be a science teacher”, so B - Teacher is the correct answer. The question asks about Heath's current job. While Heath initially considered being a doctor and even started medical school, he explicitly states that he left it to become a teacher. Your answer, A - Doctor, is incorrect because he decided not to pursue that career path.",
+      "不完全对！这个人说 I left medical school and went into teacher training college to be a science teacher，所以 B - Teacher 才是正确答案。问题问的是希思目前的工作。虽然希思最初考虑当医生，甚至开始了医学院学习，但他明确表示自己离开了那里去当老师。你的答案，A - Doctor，是错误的，因为他决定不再走那条职业道路。",
   },
   {
     no: 2,
@@ -35,7 +35,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "A",
     feedback:
-      "Correct! Sally mentions travelling through Africa and North America, but says Europe is “still on the list”, so A - Europe is the continent she did NOT visit.",
+      "答对了！Sally 提到她去过非洲和北美旅行，但说欧洲“还在清单上”，所以 A - Europe 是她没有去过的大洲。",
   },
   {
     no: 3,
@@ -47,7 +47,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "A",
     feedback:
-      "Sally says she “writes features for a national paper”, which corresponds to A - Journalist. She used to write travel pieces, but that is not her current job.",
+      "答对了！Sally 说她“为一家全国性报纸写专题报道”，对应 A - Journalist。她以前写过旅行文章，但那不是她现在的工作。",
   },
   {
     no: 4,
@@ -59,7 +59,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "A",
     feedback:
-      "Correct! Sally says “no kids yet — just the dog”, so the answer is A - None.",
+      "答对了！Sally 说“还没要孩子——只养了只狗”，所以答案是 A - None。",
   },
   {
     no: 5,
@@ -70,7 +70,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "B",
     feedback:
-      "Heath says they “tied the knot the summer after we graduated”, so B - The year after graduation is correct.",
+      "Heath 说他们“毕业后的那个夏天结的婚”，所以 B - The year after graduation 是正确答案。",
   },
 ];
 
@@ -89,6 +89,7 @@ export function ListeningMock() {
   const [openFeedback, setOpenFeedback] = useState<number | null>(1);
   const [picked, setPicked] = useState<Record<number, string>>({ 1: "A", 2: "A", 3: "A", 4: "A" });
   const [translated, setTranslated] = useState(false);
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     if (!playing) return;
@@ -128,21 +129,28 @@ export function ListeningMock() {
           </span>
           <span className="rounded bg-accent/90 px-1.5 py-0.5 text-[9px] font-bold text-ink">BETA</span>
         </div>
-        <div className="flex items-center gap-1.5 text-xs font-medium text-primary">
-          <CheckCircle2 className="h-4 w-4" />
-          您的AI反馈已准备就绪！点击
-          <span className="grid h-4 w-4 place-items-center rounded-full bg-primary text-primary-foreground">
-            <Info className="h-2.5 w-2.5" />
-          </span>
-          （info）图标查看。
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1">
+            <span className="mr-1 hidden text-[10px] text-muted-foreground sm:block">请为此翻译评分</span>
+            {[1, 2, 3, 4, 5].map((s) => (
+              <button key={s} onClick={() => setRating(s)} aria-label={`评分 ${s} 星`}>
+                <Star
+                  className={cn(
+                    "h-3.5 w-3.5 transition-colors",
+                    s <= rating ? "fill-accent text-accent" : "text-muted-foreground/50 hover:text-accent",
+                  )}
+                />
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => setTranslated((v) => !v)}
+            className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
+            style={{ background: "var(--gradient-brand)" }}
+          >
+            {translated ? "切换至中文" : "切换至英语"}
+          </button>
         </div>
-        <button
-          onClick={() => setTranslated((v) => !v)}
-          className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
-          style={{ background: "var(--gradient-brand)" }}
-        >
-          翻译（测试版）
-        </button>
       </div>
 
       {/* 题目区 */}
