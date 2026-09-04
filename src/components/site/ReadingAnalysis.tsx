@@ -102,12 +102,11 @@ function FeedbackBubble({ text, onClose }: { text: string; onClose: () => void }
 
 export function ReadingAnalysis() {
   const [part, setPart] = useState(1);
-  const [en, setEn] = useState(false);
   const [openFeedback, setOpenFeedback] = useState<number | null>(8);
   const [pick8, setPick8] = useState<string>("TRUE");
   const [pick9, setPick9] = useState<string>("B");
 
-  const passage = en ? PASSAGE_EN : PASSAGE_ZH;
+  const passage = PASSAGE_EN;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
