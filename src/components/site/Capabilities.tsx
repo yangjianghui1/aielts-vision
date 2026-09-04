@@ -233,20 +233,20 @@ export function Capabilities() {
     <section id="capability" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
       <Reveal>
         <div className="eyebrow">Capabilities</div>
-        <h2 className="mt-3 max-w-2xl font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">
+        <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold whitespace-nowrap">
           一套系统，覆盖四科全部提分环节。
         </h2>
-        <p className="mt-4 max-w-xl text-muted-foreground">
+        <p className="mt-4 text-muted-foreground whitespace-nowrap">
           七项能力，同一个自适应引擎。不是通用聊天机器人套壳，而是对着雅思评分标准长出来的产品。
         </p>
-        <p className="mt-3 max-w-xl text-[11px] leading-relaxed text-muted-foreground/70">
+        <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground/70">
           页面内容为演示效果，部分信息经过简化处理，完整版本具备更专业丰富的能力。
         </p>
       </Reveal>
 
-      <div className="mt-12 grid gap-8">
+      <div className="mt-12 grid gap-6 lg:grid-cols-[minmax(260px,300px)_1fr]">
         <Reveal>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-2.5">
             {CAPS.map((c, i) => (
               <button
                 key={c.id}
@@ -254,7 +254,7 @@ export function Capabilities() {
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
                 className={cn(
-                  "group relative flex flex-col items-start gap-2 rounded-2xl border p-4 text-left transition-all",
+                  "group relative flex items-center gap-3 rounded-xl border px-3.5 py-3 text-left transition-all",
                   active === i
                     ? "border-primary/30 bg-primary/5 text-foreground shadow-sm"
                     : "border-border bg-card text-muted-foreground hover:border-primary/20 hover:bg-primary/[0.02] hover:text-foreground",
@@ -268,11 +268,13 @@ export function Capabilities() {
                 >
                   {c.no}
                 </span>
-                <span className="font-display text-base font-bold leading-tight">{c.name}</span>
-                <span className="text-xs opacity-80">{c.tag}</span>
+                <div className="flex flex-1 flex-col">
+                  <span className="font-display text-sm font-bold leading-tight">{c.name}</span>
+                  <span className="text-[11px] opacity-75">{c.tag}</span>
+                </div>
                 <span
                   className={cn(
-                    "absolute top-4 right-4 h-2 w-2 rounded-full transition-all",
+                    "h-2 w-2 shrink-0 rounded-full transition-all",
                     active === i ? "bg-primary opacity-100" : "opacity-0",
                   )}
                 />
@@ -282,18 +284,18 @@ export function Capabilities() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="surface-card p-6 md:p-8 lg:p-10">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="surface-card p-5 md:p-7">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="eyebrow">{cap.no} · {cap.name}</div>
-                <div className="mt-1 font-display text-xl font-bold md:text-2xl">{cap.tag}</div>
+                <div className="mt-1 font-display text-lg font-bold md:text-xl">{cap.tag}</div>
               </div>
               <span className="w-fit rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
                 {cap.meta}
               </span>
             </div>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">{cap.desc}</p>
-            <div className="mt-7">
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
+            <div className="mt-5">
               <Panel cap={cap} />
             </div>
           </div>
