@@ -73,7 +73,6 @@ export function StartCta() {
   );
 }
 
-const PRODUCT_LINKS = ["Mini Mock 迷你模考", "IELTS Mock Test 全真模考", "冲刺卡", "学期卡"];
 const SUPPORT_LINKS = ["服务条款", "隐私政策"];
 
 const SOCIALS = [
@@ -93,20 +92,6 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
               英国文化教育协会（British Council）合作伙伴，专注提供系统性的英语备考课程与资料。
             </p>
-          </div>
-
-          {/* 产品 */}
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-bold text-foreground">产品</h3>
-            <ul className="mt-4 space-y-2.5">
-              {PRODUCT_LINKS.map((l) => (
-                <li key={l}>
-                  <a href="#pricing" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* 支持 */}
