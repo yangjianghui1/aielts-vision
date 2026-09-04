@@ -221,54 +221,55 @@ export function Capabilities() {
         </p>
       </Reveal>
 
-      <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="mt-12 grid gap-8">
         <Reveal>
-          <ul className="divide-y divide-border border-y border-border">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {CAPS.map((c, i) => (
-              <li key={c.id}>
-                <button
-                  onMouseEnter={() => setActive(i)}
-                  onFocus={() => setActive(i)}
-                  onClick={() => setActive(i)}
+              <button
+                key={c.id}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                onClick={() => setActive(i)}
+                className={cn(
+                  "group relative flex flex-col items-start gap-2 rounded-2xl border p-4 text-left transition-all",
+                  active === i
+                    ? "border-primary/30 bg-primary/5 text-foreground shadow-sm"
+                    : "border-border bg-card text-muted-foreground hover:border-primary/20 hover:bg-primary/[0.02] hover:text-foreground",
+                )}
+              >
+                <span
                   className={cn(
-                    "group flex w-full items-center gap-4 px-1 py-4 text-left transition-colors",
-                    active === i ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                    "font-display text-[10px] font-bold transition-colors",
+                    active === i ? "text-primary" : "text-muted-foreground/60",
                   )}
                 >
-                  <span
-                    className={cn(
-                      "font-display text-xs font-bold transition-colors",
-                      active === i ? "text-primary" : "text-muted-foreground/60",
-                    )}
-                  >
-                    {c.no}
-                  </span>
-                  <span className="font-display text-lg font-bold">{c.name}</span>
-                  <span className="ml-auto text-xs">{c.tag}</span>
-                  <span
-                    className={cn(
-                      "h-6 w-0.5 rounded-full transition-all",
-                      active === i ? "bg-primary opacity-100" : "opacity-0",
-                    )}
-                  />
-                </button>
-              </li>
+                  {c.no}
+                </span>
+                <span className="font-display text-base font-bold leading-tight">{c.name}</span>
+                <span className="text-xs opacity-80">{c.tag}</span>
+                <span
+                  className={cn(
+                    "absolute top-4 right-4 h-2 w-2 rounded-full transition-all",
+                    active === i ? "bg-primary opacity-100" : "opacity-0",
+                  )}
+                />
+              </button>
             ))}
-          </ul>
+          </div>
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="surface-card p-6 md:p-8">
-            <div className="flex items-center justify-between">
+          <div className="surface-card p-6 md:p-8 lg:p-10">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="eyebrow">{cap.no} · {cap.name}</div>
-                <div className="mt-1 font-display text-xl font-bold">{cap.tag}</div>
+                <div className="mt-1 font-display text-xl font-bold md:text-2xl">{cap.tag}</div>
               </div>
-              <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
+              <span className="w-fit rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
                 {cap.meta}
               </span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">{cap.desc}</p>
             <div className="mt-7">
               <Panel cap={cap} />
             </div>
