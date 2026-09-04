@@ -46,10 +46,10 @@ const INCLUDED = [
 ];
 
 const TOKENS = [
-  { n: "20 Tokens", tag: "轻量补充", price: "¥239", desc: "约 4 组口语及写作精细化反馈" },
-  { n: "50 Tokens", tag: "日常训练", price: "¥449", desc: "约 10 组口语及写作精细化反馈" },
-  { n: "100 Tokens", tag: "进阶提升", price: "¥799", desc: "约 20 组口语及写作精细化反馈" },
-  { n: "200 Tokens", tag: "高频训练", price: "¥1399", desc: "约 40 组口语及写作精细化反馈" },
+  { n: "20 Tokens", tag: "轻量补充", price: "239", desc: "约可完成 4 组雅思口语及写作的 Advantage AI 精细化反馈", featured: true },
+  { n: "50 Tokens", tag: "日常训练", price: "449", desc: "约可完成 10 组雅思口语及写作的 Advantage AI 精细化反馈", featured: false },
+  { n: "100 Tokens", tag: "进阶提升", price: "799", desc: "约可完成 20 组雅思口语及写作的 Advantage AI 精细化反馈", featured: false },
+  { n: "200 Tokens", tag: "高频训练", price: "1399", desc: "约可完成 40 组雅思口语及写作的 Advantage AI 精细化反馈", featured: false },
 ];
 
 export function Pricing() {
@@ -127,27 +127,82 @@ export function Pricing() {
       </Reveal>
 
       <Reveal delay={120}>
-        <details className="group surface-card mt-6 p-6">
-          <summary className="flex cursor-pointer list-none items-center justify-between">
-            <span>
-              <span className="eyebrow">AI Credits</span>
-              <span className="mt-1 block font-display text-lg font-bold">
-                Token 充值包 · 4 档，¥239 起
-              </span>
-            </span>
-            <ChevronDown className="h-5 w-5 text-muted-foreground transition-transform group-open:rotate-180" />
-          </summary>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <div className="eyebrow">AI Credits</div>
+              <h3 className="mt-2 font-display text-2xl font-extrabold md:text-3xl">
+                Token 充值包，随用随充。
+              </h3>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground">
+              会员套餐内 Token 用完后，可购买充值包继续解锁高级 AI 反馈。
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {TOKENS.map((t) => (
-              <div key={t.n} className="lift-on-hover rounded-xl border border-border p-5">
-                <div className="font-display text-base font-bold">{t.n}</div>
-                <div className="mt-0.5 text-xs text-muted-foreground">{t.tag}</div>
-                <div className="mt-4 font-display text-2xl font-extrabold text-primary">{t.price}</div>
-                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t.desc}</p>
+              <div
+                key={t.n}
+                className="lift-on-hover relative flex flex-col overflow-hidden rounded-2xl p-6"
+                style={
+                  t.featured
+                    ? { background: "var(--gradient-brand)", color: "#fff", boxShadow: "var(--shadow-lift)" }
+                    : { background: "var(--card)", border: "1px solid var(--border)" }
+                }
+              >
+                {/* 装饰 T 水印 */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-5 -bottom-10 font-display text-[150px] leading-none font-extrabold select-none"
+                  style={{ opacity: t.featured ? 0.14 : 0.05, color: t.featured ? "#fff" : "var(--primary)" }}
+                >
+                  T
+                </span>
+
+                <span
+                  className="grid h-11 w-11 place-items-center rounded-xl font-display text-lg font-extrabold"
+                  style={
+                    t.featured
+                      ? { background: "rgba(255,255,255,0.2)", color: "#fff" }
+                      : { background: "var(--magenta-soft)", color: "var(--plum)" }
+                  }
+                >
+                  T
+                </span>
+
+                <div className="mt-5 font-display text-xl font-extrabold">{t.n}</div>
+                <div className="mt-0.5 text-xs" style={{ opacity: t.featured ? 0.85 : 1 }}>
+                  <span className={t.featured ? "" : "text-muted-foreground"}>{t.tag}</span>
+                </div>
+
+                <div className="mt-5 flex items-start gap-0.5">
+                  <span className="pt-1.5 font-display text-lg font-extrabold">¥</span>
+                  <span className="font-display text-4xl font-extrabold tracking-tight">{t.price}</span>
+                </div>
+
+                <p
+                  className="mt-5 flex items-start gap-1.5 text-xs leading-relaxed"
+                  style={{ color: t.featured ? "rgba(255,255,255,0.92)" : "var(--muted-foreground)" }}
+                >
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: t.featured ? "#fff" : "var(--magenta)" }} />
+                  {t.desc}
+                </p>
+
+                <button
+                  className="relative z-10 mt-auto w-full rounded-xl py-3 text-sm font-bold transition-opacity hover:opacity-90"
+                  style={
+                    t.featured
+                      ? { background: "#fff", color: "var(--plum)", marginTop: "1.5rem" }
+                      : { background: "var(--navy)", color: "#fff", marginTop: "1.5rem" }
+                  }
+                >
+                  立即购买
+                </button>
               </div>
             ))}
           </div>
-        </details>
+        </div>
       </Reveal>
     </section>
   );
