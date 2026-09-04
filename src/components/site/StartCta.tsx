@@ -76,11 +76,6 @@ export function StartCta() {
 
 const SUPPORT_LINKS = ["服务条款", "隐私政策"];
 
-const SOCIALS = [
-  { name: "小红书", icon: <span className="font-display text-[11px] font-extrabold">小红书</span> },
-  { name: "抖音", icon: <Music2 className="h-5 w-5" /> },
-  { name: "微信公众号", icon: <MessageCircle className="h-5 w-5" /> },
-];
 
 export function Footer() {
   return (
