@@ -237,7 +237,7 @@ export function Capabilities() {
           一套系统，覆盖四科全部提分环节。
         </h2>
         <p className="mt-4 text-muted-foreground whitespace-nowrap">
-          七项能力，同一个自适应引擎。不是通用聊天机器人套壳，而是对着雅思评分标准长出来的产品。
+          依托 GEL 的真实雅思学习数据与 FlexCheck AI，提供精准评分、能力分析、个性化反馈和改进建议。
         </p>
         <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground/70">
           页面内容为演示效果，部分信息经过简化处理，完整版本具备更专业丰富的能力。
