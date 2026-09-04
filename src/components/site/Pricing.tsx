@@ -54,7 +54,7 @@ const TOKENS = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
+    <section id="pricing" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 md:py-32">
       <Reveal>
         <div className="eyebrow">Membership</div>
         <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">

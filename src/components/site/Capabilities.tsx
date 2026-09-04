@@ -230,7 +230,7 @@ export function Capabilities() {
   const cap = CAPS[active] ?? CAPS[0]!;
 
   return (
-    <section id="capability" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
+    <section id="capability" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 md:py-32">
       <Reveal>
         <div className="eyebrow">Capabilities</div>
         <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold whitespace-nowrap">
