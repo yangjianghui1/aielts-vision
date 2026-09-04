@@ -8,7 +8,6 @@ import { WritingFeedback } from "@/components/site/WritingFeedback";
 import { SpeakingSamples } from "@/components/site/SpeakingSamples";
 import { ListeningMock } from "@/components/site/ListeningMock";
 import { ReadingAnalysis } from "@/components/site/ReadingAnalysis";
-import { CoursesMock } from "@/components/site/CoursesMock";
 import { cn } from "@/lib/utils";
 
 type Cap = {
