@@ -13,7 +13,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing";
 };
 
 const CAPS: Cap[] = [
