@@ -4,6 +4,7 @@ import { GrowBar } from "@/components/motion/CountUp";
 import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingRecorder";
 import { SampleEssays } from "@/components/site/SampleEssays";
 import { ReadingMock } from "@/components/site/ReadingMock";
+import { WritingFeedback } from "@/components/site/WritingFeedback";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -13,7 +14,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing";
 };
 
 const CAPS: Cap[] = [
@@ -33,7 +34,7 @@ const CAPS: Cap[] = [
     tag: "四维度逐条批改",
     desc: "提交 Task 1 / Task 2，返回任务完成度、连贯与衔接、词汇资源、语法准确性四项分数与行内改写建议。",
     meta: "平均 45 秒出分",
-    panel: "score",
+    panel: "writing",
   },
   {
     id: "essay",
@@ -98,6 +99,10 @@ function Panel({ cap }: { cap: Cap }) {
 
   if (cap.panel === "essay") {
     return <SampleEssays />;
+  }
+
+  if (cap.panel === "writing") {
+    return <WritingFeedback />;
   }
 
   if (cap.panel === "speak") {
