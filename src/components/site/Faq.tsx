@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
+import wechatQrAsset from "@/assets/wechat-qr.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
