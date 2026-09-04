@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { GrowBar } from "@/components/motion/CountUp";
 import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingRecorder";
 import { SampleEssays } from "@/components/site/SampleEssays";
+import { ReadingMock } from "@/components/site/ReadingMock";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -12,7 +13,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock";
 };
 
 const CAPS: Cap[] = [
@@ -23,7 +24,7 @@ const CAPS: Cap[] = [
     tag: "完整还原机考流程",
     desc: "40 套全真模考，真实页面操作、时间节奏与作答方式，考前把陌生感全部消耗掉。",
     meta: "3 小时 · 四科连考",
-    panel: "score",
+    panel: "mock",
   },
   {
     id: "writing",
@@ -91,6 +92,10 @@ const CAPS: Cap[] = [
 ];
 
 function Panel({ cap }: { cap: Cap }) {
+  if (cap.panel === "mock") {
+    return <ReadingMock />;
+  }
+
   if (cap.panel === "essay") {
     return <SampleEssays />;
   }
