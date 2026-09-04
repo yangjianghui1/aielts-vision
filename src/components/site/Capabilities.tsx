@@ -284,18 +284,18 @@ export function Capabilities() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="surface-card p-5 md:p-7">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="surface-card p-4 md:p-5">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="eyebrow">{cap.no} · {cap.name}</div>
-                <div className="mt-1 font-display text-lg font-bold md:text-xl">{cap.tag}</div>
+                <div className="mt-0.5 font-display text-base font-bold md:text-lg">{cap.tag}</div>
               </div>
-              <span className="w-fit rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
+              <span className="w-fit rounded-full border border-border px-2.5 py-0.5 text-[11px] text-muted-foreground">
                 {cap.meta}
               </span>
             </div>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
-            <div className="mt-5">
+            <p className="mt-2 max-w-3xl text-[13px] leading-relaxed text-muted-foreground">{cap.desc}</p>
+            <div className="mt-3">
               <Panel cap={cap} />
             </div>
           </div>
