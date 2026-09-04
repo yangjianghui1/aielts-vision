@@ -40,12 +40,13 @@ export function MockScroll() {
           </h2>
         </div>
 
-        <div className="mt-10 w-full overflow-hidden">
+        <div className="mt-10 w-full overflow-visible">
           <div
             className="flex gap-6 px-5"
             style={{
               transform: `translateX(calc(${-progress * (CARDS.length - 1)} * (min(78vw, 24rem) + 1.5rem)))`,
               transition: "transform 120ms linear",
+              width: "max-content",
             }}
           >
             {CARDS.map((c) => (
