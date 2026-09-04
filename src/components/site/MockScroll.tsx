@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const CARDS = [
-  { no: "01", title: "Listening", sub: "四种口音", body: "英音、澳音、新西兰与印度英语 —— 与考试当天同源的语音材料，难度自动跟随你的正确率。" },
-  { no: "02", title: "Reading", sub: "题型专项", body: "True/False/Not Given、Matching Headings、Y/N/NG，逐题型定位失分点。" },
-  { no: "03", title: "Writing Task 1", sub: "图表描述", body: "折线、柱状、流程与地图题，数据描述句式库与四维评分同时返回。" },
-  { no: "04", title: "Writing Task 2", sub: "议论文", body: "五类题型的论证骨架，行内改写建议直接标注在你的原文上。" },
-  { no: "05", title: "Speaking Part 2", sub: "Cue Card", body: "1 分钟准备 + 2 分钟陈述全程计时，转写稿逐句标注停顿与填充词。" },
-  { no: "06", title: "Mock Test", sub: "四科连考", body: "3 小时完整流程，还原机考界面与时间压力，考前至少完整跑通两次。" },
-  { no: "07", title: "Review", sub: "多分段范文", body: "对照 5/6、6/7、7/8、8/9 四档答案，看清下一档到底差在哪里。" },
+  { no: "01", title: "摸底定位", sub: "全真模考摸底，定位短板", body: "完成整套仿真模考，输出四科分项数据，识别薄弱题型、分数缺口，找准备考起点。" },
+  { no: "02", title: "专项训练", sub: "分模块专项针对性练习", body: "听力 / 阅读 / 写作 / 口语分题型拆解训练，针对错题、失分点定向刷题，打磨答题手感。" },
+  { no: "03", title: "知识补全", sub: "知识点课程学习，补齐能力", body: "学习题型方法论、审题逻辑、高分表达，补齐词汇语法、答题框架等底层知识。" },
+  { no: "04", title: "模考校验", sub: "强化全真模考，验证提升效果", body: "完整走完整套雅思考试链路，复刻真实考试计时环境，检验学习成果，训练时间分配。" },
+  { no: "05", title: "复盘迭代", sub: "错题深度复盘，闭环迭代", body: "依托答题反馈解析，消化错题，修正知识漏洞，回到专项训练持续优化，循环提分。" },
 ];
 
 export function MockScroll() {
@@ -33,12 +31,12 @@ export function MockScroll() {
   }, []);
 
   return (
-    <section id="mock" ref={wrapRef} className="relative h-[420vh] bg-secondary/40">
+    <section id="mock" ref={wrapRef} className="relative h-[320vh] bg-secondary/40">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-6xl px-5">
-          <div className="eyebrow">Mock Test · 40 套全真模考</div>
-          <h2 className="mt-3 max-w-2xl font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold">
-            横向走完整条雅思考试链路。
+          <div className="eyebrow">Learning Loop · 五步提分闭环</div>
+          <h2 className="mt-3 max-w-3xl font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold">
+            摸底定位 → 专项训练 → 知识补全 → 全真模考校验 → 复盘闭环
           </h2>
         </div>
 
