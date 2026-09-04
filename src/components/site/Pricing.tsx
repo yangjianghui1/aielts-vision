@@ -1,4 +1,4 @@
-import { Check, ChevronDown } from "lucide-react";
+import { Check } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 
 const PLANS = [
