@@ -296,30 +296,30 @@ export function CoursesMock() {
         </div>
 
         {/* 题目分页 */}
-        <div className="mt-4 flex items-center justify-center gap-6">
+        <div className="mt-3 flex items-center justify-center gap-5">
           <button
             onClick={() => goQuiz(-1)}
-            className="grid h-8 w-8 place-items-center rounded-full border border-border transition-colors hover:border-primary/40 hover:text-primary"
+            className="grid h-7 w-7 place-items-center rounded-full border border-border transition-colors hover:border-primary/40 hover:text-primary"
             aria-label="上一题"
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-3.5 w-3.5" />
           </button>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-xs text-muted-foreground">
             问题 <b className="font-display text-foreground">{qIdx + 1}</b> 的 13
           </span>
           <button
             onClick={() => goQuiz(1)}
-            className="grid h-8 w-8 place-items-center rounded-full border border-border transition-colors hover:border-primary/40 hover:text-primary"
+            className="grid h-7 w-7 place-items-center rounded-full border border-border transition-colors hover:border-primary/40 hover:text-primary"
             aria-label="下一题"
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-3.5 w-3.5" />
           </button>
         </div>
 
         {/* 随堂练习 */}
-        <div className="mt-4 rounded-2xl border border-border bg-secondary/40 p-5 md:p-7">
-          <p className="text-center font-display text-base font-bold md:text-lg">{quiz.q}</p>
-          <div className="mx-auto mt-5 grid max-w-2xl gap-2.5 sm:grid-cols-2">
+        <div className="mt-3 rounded-2xl border border-border bg-secondary/40 p-4 md:p-5">
+          <p className="text-center font-display text-sm font-bold md:text-base">{quiz.q}</p>
+          <div className="mx-auto mt-4 grid max-w-2xl gap-2 sm:grid-cols-2">
             {quiz.options.map((opt, i) => {
               const isPicked = picked === i;
               const isRight = picked !== null && i === quiz.answer;
@@ -329,7 +329,7 @@ export function CoursesMock() {
                   key={opt}
                   onClick={() => setPicked(i)}
                   className={cn(
-                    "flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-all",
+                    "flex items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium transition-all",
                     isRight
                       ? "border-primary bg-primary text-primary-foreground"
                       : isWrong
@@ -337,15 +337,15 @@ export function CoursesMock() {
                         : "border-border bg-card hover:border-primary/50 hover:text-primary",
                   )}
                 >
-                  {isRight && <CheckCircle2 className="h-4 w-4" />}
-                  {isWrong && <XCircle className="h-4 w-4" />}
+                  {isRight && <CheckCircle2 className="h-3.5 w-3.5" />}
+                  {isWrong && <XCircle className="h-3.5 w-3.5" />}
                   {opt}
                 </button>
               );
             })}
           </div>
           {picked !== null && (
-            <p className="mt-4 text-center text-xs text-muted-foreground">
+            <p className="mt-3 text-center text-[11px] text-muted-foreground">
               {picked === quiz.answer
                 ? "回答正确！副词 always 修饰动词，属于 adverb（副词）。"
                 : "再想想：always 描述动作发生的频率，修饰的是动词。"}
