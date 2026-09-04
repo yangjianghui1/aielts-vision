@@ -130,6 +130,10 @@ function Panel({ cap }: { cap: Cap }) {
     return <ReadingAnalysis />;
   }
 
+  if (cap.panel === "courses") {
+    return <CoursesMock />;
+  }
+
   if (cap.panel === "vocab") {
     return (
       <div className="space-y-4">
