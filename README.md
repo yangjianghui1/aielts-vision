@@ -1,7 +1,5 @@
 # AIELTS Vision
 
-https://github.com/SYAAGalib/AIELTS_V2   https://aielts.org/ 这是我想参考的网站风格、看代码细节也是用lovable生成的、请帮我大概总结下页面色彩、动态、交互、结构、排版等风格特点，并给我找一些类似的 教育、科技行业的参考案例，我要用这些信息要重新迭代我的网站
-
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
