@@ -5,6 +5,7 @@ import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingReco
 import { SampleEssays } from "@/components/site/SampleEssays";
 import { ReadingMock } from "@/components/site/ReadingMock";
 import { WritingFeedback } from "@/components/site/WritingFeedback";
+import { SpeakingSamples } from "@/components/site/SpeakingSamples";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -14,7 +15,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample";
 };
 
 const CAPS: Cap[] = [
@@ -55,13 +56,13 @@ const CAPS: Cap[] = [
     panel: "speak",
   },
   {
-    id: "lr",
+    id: "speak-sample",
     no: "05",
-    name: "听力阅读分析",
-    tag: "定位到题型",
-    desc: "TFNG、Matching Headings、Y/N/NG —— 精确到拖慢你的那一类题，而不是泛泛刷套题。",
-    meta: "12 类题型标签",
-    panel: "vocab",
+    name: "AI 口语范文",
+    tag: "真人现场示范",
+    desc: "真人考官视角的口语示范视频，对照 5.5 与 6 分现场表现，逐分数段读解官方评分描述，看清差距到底在哪。",
+    meta: "示范视频 + 评分描述",
+    panel: "speak-sample",
   },
   {
     id: "vocab",
@@ -112,6 +113,10 @@ function Panel({ cap }: { cap: Cap }) {
         <SpeakingReport />
       </div>
     );
+  }
+
+  if (cap.panel === "speak-sample") {
+    return <SpeakingSamples />;
   }
 
   if (cap.panel === "vocab") {
