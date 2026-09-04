@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { GrowBar } from "@/components/motion/CountUp";
-import { SpeakingRecorder } from "@/components/site/SpeakingRecorder";
+import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingRecorder";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -82,7 +82,12 @@ const CAPS: Cap[] = [
 
 function Panel({ cap }: { cap: Cap }) {
   if (cap.panel === "speak") {
-    return <SpeakingRecorder compact />;
+    return (
+      <div className="grid gap-4 xl:grid-cols-2">
+        <SpeakingRecorder compact />
+        <SpeakingReport />
+      </div>
+    );
   }
 
   if (cap.panel === "vocab") {
