@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle, Music2, QrCode } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import logoAsset from "@/assets/AIELTS-logo.png.asset.json";
 
