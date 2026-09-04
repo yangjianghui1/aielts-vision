@@ -149,6 +149,7 @@ const GROUPS: { band: string; items: EssayItem[] }[] = [
 function EssayBlock({ item, dim }: { item: EssayItem; dim: number }) {
   const [expanded, setExpanded] = useState(false);
   const long = item.essay.length > 2;
+  const words = item.essay.join(" ").split(/\s+/).length;
 
   return (
     <div className="grid gap-4 border-t border-border/60 pt-4 first:border-0 first:pt-0 md:grid-cols-[180px_1fr]">
@@ -182,7 +183,7 @@ function EssayBlock({ item, dim }: { item: EssayItem; dim: number }) {
           ) : (
             <span />
           )}
-          <span className="text-xs tabular-nums text-muted-foreground">{item.words}</span>
+          <span className="text-xs tabular-nums text-muted-foreground">{words}</span>
         </div>
       </div>
     </div>
