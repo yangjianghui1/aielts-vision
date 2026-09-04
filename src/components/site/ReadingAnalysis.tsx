@@ -8,20 +8,12 @@ const PARTS = [
   { id: 3, label: "Part 3", count: "(7 的 14)" },
 ];
 
-const PASSAGE_EN = [
+const PASSAGE = [
   "The sixth, seventh and eighth rules related to the plot. The film had to be set in the here and now, and in the place in which the filming occurred. Genre movies were unacceptable, so the film could not be horror or fantasy, for example, and had to be realistic. Finally, the films were not allowed to contain superficial action such as murders. These rules meant that the films were concerned with everyday aspects of life such as familial relationships, friendships and so on.",
   "The ninth rule dictated only the use of the standard Academy 35mm format. The final rule stated that the director must not be credited. This most likely stemmed from the prevalence of high-budget films at the time, in which the popularity of the directors and actors alike was considered an important factor in choosing to go and see a film. The other aim of the final rule was to stop directors from showcasing their own personal tastes within their films, but instead encouraging them to simply exhibit the truth about the characters and the story.",
   "With these rules in mind, the two directors each went on to make a film following the rules of the manifesto. The first film to be made in accordance to the vow of chastity was Vinterberg's Festen (1998). The film tells the story of a family gathering celebrating the head of the family's sixtieth birthday. Vinterberg in fact shot the film on a digital video camera and proceeded to blow it up to fit the 35mm gauge, giving the film a very grainy effect.",
   "The second Dogme 95 film made was Lars Von Trier's The Idiots (1998). It portrays a group of adults who are seeking a way to display their 'inner idiots'. Although he generally complied with the rules, Von Trier admitted to having interfered with the location by moving candles around to achieve the desired lighting.",
   "Following the creation of Festen and Idiots, further Danish directors joined the movement, forming the so-called 'Dogme Brethren'. Filmmakers from all over the world have since attempted to follow the vow of chastity while creating Dogme 95 films, many finding it an effective way to approach making low-budget films.",
-];
-
-const PASSAGE_ZH = [
-  "第六、七、八条规则与剧情有关：影片必须设定在“此时此地”，即拍摄发生的真实地点。类型片不被接受——例如不能是恐怖片或奇幻片——必须写实。影片也不允许包含谋杀等肤浅的动作场面。这些规则意味着影片关注的是家庭关系、友谊等日常生活层面。",
-  "第九条规定只能使用标准的学院 35mm 胶片格式。最后一条规定导演不得署名，这很可能源于当时高预算电影的盛行——导演和演员的知名度是观众选片的重要因素。最后一条的另一个目的是阻止导演在影片中展示个人趣味，而是鼓励他们只呈现人物与故事的真相。",
-  "牢记这些规则，两位导演各自按照宣言拍摄了一部影片。第一部依照“纯洁誓言”拍摄的影片是温特伯格的《家宴》(1998)，讲述一场为家主六十岁生日举办的家庭聚会。温特伯格实际上用数码摄像机拍摄，再放大到 35mm 胶片规格，使画面呈现强烈的颗粒感。",
-  "第二部道格玛 95 影片是拉斯·冯·提尔的《白痴》(1998)，讲述一群试图展现“内心白痴”的成年人。尽管他总体上遵守规则，但冯·提尔承认曾为了获得理想的光线而移动现场蜡烛，干预了拍摄地点。",
-  "《家宴》和《白痴》问世后，更多丹麦导演加入这场运动，组成所谓的“道格玛兄弟会”。此后世界各地的电影人都尝试遵循纯洁誓言创作道格玛 95 影片，许多人发现这是拍低成本电影的有效方式。",
 ];
 
 const TFNG = ["TRUE", "FALSE", "NOT GIVEN"] as const;
@@ -102,12 +94,11 @@ function FeedbackBubble({ text, onClose }: { text: string; onClose: () => void }
 
 export function ReadingAnalysis() {
   const [part, setPart] = useState(1);
-  const [en, setEn] = useState(false);
   const [openFeedback, setOpenFeedback] = useState<number | null>(8);
   const [pick8, setPick8] = useState<string>("TRUE");
   const [pick9, setPick9] = useState<string>("B");
 
-  const passage = en ? PASSAGE_EN : PASSAGE_ZH;
+  const passage = PASSAGE;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
