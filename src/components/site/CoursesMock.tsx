@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Clock, Play, Search } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, Clock, Maximize2, Pause, Play, Search, Volume2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Course = {
@@ -60,35 +60,28 @@ const COURSES: Course[] = [
     iconBg: "bg-magenta/15",
     icon: "A",
   },
+];
+
+const QUIZ = [
   {
-    id: "c4",
-    title: "Task 2 观点类作文结构",
-    desc: "四段式展开：立场、论证、让步与结论",
-    cat: "writing",
-    dur: "45-60",
-    time: "2:00下午 - 2:45下午",
-    iconBg: "bg-primary/10",
-    icon: "✍",
+    q: "What part of speech is the word 'always'?",
+    options: ["verb", "noun", "adverb", "adjective"],
+    answer: 2,
   },
   {
-    id: "c5",
-    title: "阅读 Heading 题速解",
-    desc: "用首尾句定位段落主旨，告别逐句精读",
-    cat: "reading",
-    dur: "30-40",
-    time: "3:00下午 - 3:35下午",
-    iconBg: "bg-primary/10",
-    icon: "📖",
+    q: "Which sentence uses the mid-position adverb correctly?",
+    options: [
+      "I go rarely for a walk in the park.",
+      "I rarely go for a walk in the park.",
+      "Rarely I go for a walk always.",
+      "I go for a walk rarely in the park usually.",
+    ],
+    answer: 1,
   },
   {
-    id: "c6",
-    title: "Part 2 个人陈述素材库",
-    desc: "8 个万能故事线覆盖 90% 话题卡",
-    cat: "speaking",
-    dur: "30-40",
-    time: "6:00下午 - 6:35下午",
-    iconBg: "bg-accent/25",
-    icon: "🎙",
+    q: "'Sometimes I read before bed.' — Where is the adverb?",
+    options: ["end position", "mid-position", "front position", "no adverb"],
+    answer: 2,
   },
 ];
 
@@ -97,6 +90,15 @@ export function CoursesMock() {
   const [dur, setDur] = useState<string>("all");
   const [query, setQuery] = useState("");
   const [joined, setJoined] = useState<Record<string, boolean>>({});
+  const [playing, setPlaying] = useState(false);
+  const [qIdx, setQIdx] = useState(0);
+  const [picked, setPicked] = useState<number | null>(null);
+
+  const quiz = QUIZ[qIdx];
+  const goQuiz = (d: number) => {
+    setQIdx((i) => (i + d + QUIZ.length) % QUIZ.length);
+    setPicked(null);
+  };
 
   const list = useMemo(
     () =>
@@ -223,6 +225,131 @@ export function CoursesMock() {
             <div className="rounded-2xl border border-dashed border-border py-10 text-center text-sm text-muted-foreground">
               没有符合条件的课程，换个筛选试试
             </div>
+          )}
+        </div>
+      </div>
+
+      {/* 外教直播课堂 */}
+      <div className="border-t border-border bg-card px-4 py-5 md:px-6">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="font-display text-lg font-extrabold">直播课堂</span>
+            <span className="text-xs text-muted-foreground">语法：副词的三个位置</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-magenta/10 px-3 py-1 text-[10px] font-bold tracking-wider text-magenta">
+            <span className="breathe h-1.5 w-1.5 rounded-full bg-magenta" />
+            LIVE 直播中
+          </span>
+        </div>
+
+        {/* 播放器 */}
+        <div className="overflow-hidden rounded-xl bg-black text-white">
+          <div className="relative aspect-[16/8] w-full bg-[#0d0d1f]">
+            {/* 课件 */}
+            <div className="absolute inset-y-0 left-0 flex w-[72%] flex-col justify-center gap-2 bg-white p-5 text-foreground md:gap-3 md:p-8">
+              <div className="font-display text-base font-extrabold text-primary md:text-xl">Three adverb positions</div>
+              <p className="text-xs text-muted-foreground md:text-sm">There are three positions for adverbs:</p>
+              <ul className="space-y-1.5 text-[11px] leading-snug md:space-y-2.5 md:text-sm">
+                <li>– The <b>front position</b> at the beginning of a clause:
+                  <span className="block pl-4 italic text-muted-foreground">1) <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-4">Sometimes</b> I go for a walk in the park.</span>
+                </li>
+                <li>– The <b>mid-position</b> next to the main verb:
+                  <span className="block pl-4 italic text-muted-foreground">2) I <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-4">rarely</b> go for a walk in the park.</span>
+                </li>
+                <li className="hidden md:block">– And the <b>end position</b> at the end of a clause:
+                  <span className="block pl-4 italic text-muted-foreground">3) I don't go for a walk in the park <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-4">often</b>.</span>
+                </li>
+              </ul>
+            </div>
+            {/* 外教画中画 */}
+            <div className="absolute top-3 right-3 flex h-16 w-24 flex-col items-center justify-end overflow-hidden rounded-lg border border-white/20 md:h-24 md:w-36"
+              style={{ background: "linear-gradient(160deg,#5000ff 0%,#dc3dbe 70%,#ffb500 130%)" }}
+            >
+              <div className="mb-1 grid h-9 w-9 place-items-center rounded-full bg-white/25 text-base md:h-14 md:w-14 md:text-2xl">👨‍🏫</div>
+              <span className="w-full bg-black/50 py-0.5 text-center text-[9px] font-semibold md:text-[10px]">Gel Tutor · 外教</span>
+            </div>
+            {/* 控制条 */}
+            <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/90 to-transparent px-4 pt-6 pb-2.5">
+              <button
+                onClick={() => setPlaying((p) => !p)}
+                className="grid h-8 w-8 place-items-center rounded-full bg-white/15 transition-colors hover:bg-white/30"
+                aria-label={playing ? "暂停" : "播放"}
+              >
+                {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+              </button>
+              <span className="text-[10px] tabular-nums text-white/80">6:47 / 29:41</span>
+              <div className="relative h-1 flex-1 overflow-hidden rounded-full bg-white/25">
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full"
+                  style={{
+                    background: "linear-gradient(90deg,#5000ff,#dc3dbe 60%,#ffb500)",
+                    width: "24%",
+                    transition: "width 12s linear",
+                    ...(playing ? { width: "100%" } : {}),
+                  }}
+                />
+              </div>
+              <Volume2 className="h-4 w-4 text-white/80" />
+              <Maximize2 className="h-4 w-4 text-white/80" />
+            </div>
+          </div>
+        </div>
+
+        {/* 题目分页 */}
+        <div className="mt-4 flex items-center justify-center gap-6">
+          <button
+            onClick={() => goQuiz(-1)}
+            className="grid h-8 w-8 place-items-center rounded-full border border-border transition-colors hover:border-primary/40 hover:text-primary"
+            aria-label="上一题"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <span className="text-sm text-muted-foreground">
+            问题 <b className="font-display text-foreground">{qIdx + 1}</b> 的 13
+          </span>
+          <button
+            onClick={() => goQuiz(1)}
+            className="grid h-8 w-8 place-items-center rounded-full border border-border transition-colors hover:border-primary/40 hover:text-primary"
+            aria-label="下一题"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* 随堂练习 */}
+        <div className="mt-4 rounded-2xl border border-border bg-secondary/40 p-5 md:p-7">
+          <p className="text-center font-display text-base font-bold md:text-lg">{quiz.q}</p>
+          <div className="mx-auto mt-5 grid max-w-2xl gap-2.5 sm:grid-cols-2">
+            {quiz.options.map((opt, i) => {
+              const isPicked = picked === i;
+              const isRight = picked !== null && i === quiz.answer;
+              const isWrong = isPicked && i !== quiz.answer;
+              return (
+                <button
+                  key={opt}
+                  onClick={() => setPicked(i)}
+                  className={cn(
+                    "flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-all",
+                    isRight
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : isWrong
+                        ? "border-magenta bg-magenta/10 text-magenta"
+                        : "border-border bg-card hover:border-primary/50 hover:text-primary",
+                  )}
+                >
+                  {isRight && <CheckCircle2 className="h-4 w-4" />}
+                  {isWrong && <XCircle className="h-4 w-4" />}
+                  {opt}
+                </button>
+              );
+            })}
+          </div>
+          {picked !== null && (
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              {picked === quiz.answer
+                ? "回答正确！副词 always 修饰动词，属于 adverb（副词）。"
+                : "再想想：always 描述动作发生的频率，修饰的是动词。"}
+            </p>
           )}
         </div>
       </div>
