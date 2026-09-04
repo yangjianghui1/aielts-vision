@@ -8,7 +8,6 @@ import { WritingFeedback } from "@/components/site/WritingFeedback";
 import { SpeakingSamples } from "@/components/site/SpeakingSamples";
 import { ListeningMock } from "@/components/site/ListeningMock";
 import { ReadingAnalysis } from "@/components/site/ReadingAnalysis";
-import { CoursesMock } from "@/components/site/CoursesMock";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -18,7 +17,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading" | "courses";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading";
 };
 
 const CAPS: Cap[] = [
@@ -85,15 +84,6 @@ const CAPS: Cap[] = [
     meta: "3 个 Part · 40 题精讲",
     panel: "reading",
   },
-  {
-    id: "boost",
-    no: "08",
-    name: "200+外教课程",
-    tag: "地道口语强输出",
-    desc: "200+ 节外教直播与录播课程，覆盖听说读写与语法全类别，按类别、时长自由筛选，注册直播或随时观看回放。",
-    meta: "直播 + 回放 · 每日更新",
-    panel: "courses",
-  },
 ];
 
 function Panel({ cap }: { cap: Cap }) {
@@ -128,10 +118,6 @@ function Panel({ cap }: { cap: Cap }) {
 
   if (cap.panel === "reading") {
     return <ReadingAnalysis />;
-  }
-
-  if (cap.panel === "courses") {
-    return <CoursesMock />;
   }
 
   if (cap.panel === "vocab") {
