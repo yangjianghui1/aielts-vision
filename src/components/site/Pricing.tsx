@@ -144,36 +144,39 @@ export function Pricing() {
             {TOKENS.map((t) => (
               <div
                 key={t.n}
-                className="lift-on-hover relative flex flex-col overflow-hidden rounded-2xl p-6"
-                style={
+                className={`lift-on-hover relative flex flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 ${
                   t.featured
-                    ? { background: "var(--gradient-brand)", color: "#fff", boxShadow: "var(--shadow-lift)" }
-                    : { background: "var(--card)", border: "1px solid var(--border)" }
-                }
+                    ? "group bg-white text-navy border border-border hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
+                    : "bg-card border border-border"
+                }`}
               >
                 {/* 装饰 T 水印 */}
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -right-5 -bottom-10 font-display text-[150px] leading-none font-extrabold select-none"
-                  style={{ opacity: t.featured ? 0.14 : 0.05, color: t.featured ? "#fff" : "var(--primary)" }}
+                  className={`pointer-events-none absolute -right-5 -bottom-10 font-display text-[150px] leading-none font-extrabold select-none ${
+                    t.featured
+                      ? "opacity-[0.05] text-primary group-hover:opacity-[0.14] group-hover:text-white"
+                      : "opacity-[0.05] text-primary"
+                  }`}
                 >
                   T
                 </span>
 
                 <span
-                  className="grid h-11 w-11 place-items-center rounded-xl font-display text-lg font-extrabold"
-                  style={
+                  className={`grid h-11 w-11 place-items-center rounded-xl font-display text-lg font-extrabold ${
                     t.featured
-                      ? { background: "rgba(255,255,255,0.2)", color: "#fff" }
-                      : { background: "var(--magenta-soft)", color: "var(--plum)" }
-                  }
+                      ? "bg-magenta-soft text-plum group-hover:bg-white/20 group-hover:text-white"
+                      : "bg-magenta-soft text-plum"
+                  }`}
                 >
                   T
                 </span>
 
                 <div className="mt-5 font-display text-xl font-extrabold">{t.n}</div>
-                <div className="mt-0.5 text-xs" style={{ opacity: t.featured ? 0.85 : 1 }}>
-                  <span className={t.featured ? "" : "text-muted-foreground"}>{t.tag}</span>
+                <div className="mt-0.5 text-xs opacity-85 group-hover:opacity-100">
+                  <span className={t.featured ? "text-muted-foreground group-hover:text-white/85" : "text-muted-foreground"}>
+                    {t.tag}
+                  </span>
                 </div>
 
                 <div className="mt-5 flex items-start gap-0.5">
@@ -182,20 +185,24 @@ export function Pricing() {
                 </div>
 
                 <p
-                  className="mt-5 flex items-start gap-1.5 text-xs leading-relaxed"
-                  style={{ color: t.featured ? "rgba(255,255,255,0.92)" : "var(--muted-foreground)" }}
+                  className={`mt-5 flex items-start gap-1.5 text-xs leading-relaxed ${
+                    t.featured ? "text-muted-foreground group-hover:text-white/90" : "text-muted-foreground"
+                  }`}
                 >
-                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: t.featured ? "#fff" : "var(--magenta)" }} />
+                  <Check
+                    className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${
+                      t.featured ? "text-magenta group-hover:text-white" : "text-magenta"
+                    }`}
+                  />
                   {t.desc}
                 </p>
 
                 <button
-                  className="relative z-10 mt-auto w-full rounded-xl py-3 text-sm font-bold transition-opacity hover:opacity-90"
-                  style={
+                  className={`relative z-10 mt-6 w-full rounded-xl py-3 text-sm font-bold transition-opacity hover:opacity-90 ${
                     t.featured
-                      ? { background: "#fff", color: "var(--plum)", marginTop: "1.5rem" }
-                      : { background: "var(--navy)", color: "#fff", marginTop: "1.5rem" }
-                  }
+                      ? "bg-navy text-white group-hover:bg-white group-hover:text-plum"
+                      : "bg-navy text-white"
+                  }`}
                 >
                   立即购买
                 </button>
