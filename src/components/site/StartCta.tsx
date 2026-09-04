@@ -1,5 +1,6 @@
-import { ArrowRight, MessageCircle, Music2, QrCode } from "lucide-react";
+import { ArrowRight, QrCode } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
+import { SocialLinks } from "@/components/site/SocialLinks";
 import logoAsset from "@/assets/AIELTS-logo.png.asset.json";
 
 const ENTRIES = [
@@ -75,11 +76,6 @@ export function StartCta() {
 
 const SUPPORT_LINKS = ["服务条款", "隐私政策"];
 
-const SOCIALS = [
-  { name: "小红书", icon: <span className="font-display text-[11px] font-extrabold">小红书</span> },
-  { name: "抖音", icon: <Music2 className="h-5 w-5" /> },
-  { name: "微信公众号", icon: <MessageCircle className="h-5 w-5" /> },
-];
 
 export function Footer() {
   return (
@@ -122,19 +118,7 @@ export function Footer() {
           {/* 关注我们 */}
           <div className="md:col-span-3">
             <h3 className="text-sm font-bold text-foreground">关注我们</h3>
-            <div className="mt-4 flex gap-3">
-              {SOCIALS.map((s) => (
-                <a
-                  key={s.name}
-                  href="#"
-                  aria-label={s.name}
-                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:text-primary"
-                  style={{ boxShadow: "0 2px 8px -2px rgba(0,0,102,0.08)" }}
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
+            <SocialLinks />
             <p className="mt-3 text-xs leading-5 text-muted-foreground">
               关注获取备考资料、学习干货、模考资讯、近期活动
             </p>
