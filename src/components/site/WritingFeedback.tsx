@@ -66,7 +66,6 @@ const SECTIONS: Section[] = [
 ];
 
 export function WritingFeedback() {
-  const [openQ, setOpenQ] = useState(false);
   const [openIdx, setOpenIdx] = useState<number | null>(1);
   const [perfOpen, setPerfOpen] = useState(true);
 
@@ -114,24 +113,6 @@ export function WritingFeedback() {
         </div>
       </div>
 
-      {/* 问题手风琴 */}
-      <div className="rounded-2xl border border-border bg-card">
-        <button
-          type="button"
-          onClick={() => setOpenQ((v) => !v)}
-          className="flex w-full items-center justify-between px-5 py-4"
-        >
-          <span className="text-base font-extrabold text-ink">问题</span>
-          <ChevronDown className={cn("h-5 w-5 text-ink transition-transform", openQ && "rotate-180")} />
-        </button>
-        {openQ && (
-          <p className="border-t border-border px-5 py-4 text-sm leading-relaxed text-muted-foreground">
-            The table below gives information about the underground railway systems in six cities.
-            Summarise the information by selecting and reporting the main features, and make
-            comparisons where relevant.
-          </p>
-        )}
-      </div>
 
       {/* 您的表现 */}
       <div className="rounded-2xl border border-border bg-card">
