@@ -112,10 +112,10 @@ export function CoursesMock() {
   );
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40">
+    <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40 text-[13px]">
       {/* 顶部：搜索 */}
-      <div className="border-b border-border bg-card px-4 py-3.5 md:px-6">
-        <div className="flex items-center gap-2 rounded-full border border-border bg-secondary/70 px-4 py-2">
+      <div className="border-b border-border bg-card px-4 py-2.5 md:px-5">
+        <div className="flex items-center gap-2 rounded-full border border-border bg-secondary/70 px-3.5 py-1.5">
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
