@@ -234,6 +234,9 @@ export function Capabilities() {
         <p className="mt-4 max-w-xl text-muted-foreground">
           七项能力，同一个自适应引擎。不是通用聊天机器人套壳，而是对着雅思评分标准长出来的产品。
         </p>
+        <p className="mt-3 max-w-xl text-[11px] leading-relaxed text-muted-foreground/70">
+          页面内容为演示效果，部分信息经过简化处理，完整版本具备更专业丰富的能力。
+        </p>
       </Reveal>
 
       <div className="mt-12 grid gap-8">
