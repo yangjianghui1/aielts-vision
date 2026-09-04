@@ -244,40 +244,40 @@ export function CoursesMock() {
 
         {/* 播放器 */}
         <div className="overflow-hidden rounded-xl bg-black text-white">
-          <div className="relative aspect-[16/8] w-full bg-[#0d0d1f]">
+          <div className="relative aspect-[16/7] w-full bg-[#0d0d1f]">
             {/* 课件 */}
-            <div className="absolute inset-y-0 left-0 flex w-[72%] flex-col justify-center gap-2 bg-white p-5 text-foreground md:gap-3 md:p-8">
-              <div className="font-display text-base font-extrabold text-primary md:text-xl">Three adverb positions</div>
-              <p className="text-xs text-muted-foreground md:text-sm">There are three positions for adverbs:</p>
-              <ul className="space-y-1.5 text-[11px] leading-snug md:space-y-2.5 md:text-sm">
+            <div className="absolute inset-y-0 left-0 flex w-[72%] flex-col justify-center gap-1.5 bg-white p-4 text-foreground md:gap-2 md:p-6">
+              <div className="font-display text-sm font-extrabold text-primary md:text-base">Three adverb positions</div>
+              <p className="text-[11px] text-muted-foreground md:text-xs">There are three positions for adverbs:</p>
+              <ul className="space-y-1 text-[10px] leading-snug md:space-y-1.5 md:text-xs">
                 <li>– The <b>front position</b> at the beginning of a clause:
-                  <span className="block pl-4 italic text-muted-foreground">1) <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-4">Sometimes</b> I go for a walk in the park.</span>
+                  <span className="block pl-3 italic text-muted-foreground">1) <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-2">Sometimes</b> I go for a walk in the park.</span>
                 </li>
                 <li>– The <b>mid-position</b> next to the main verb:
-                  <span className="block pl-4 italic text-muted-foreground">2) I <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-4">rarely</b> go for a walk in the park.</span>
+                  <span className="block pl-3 italic text-muted-foreground">2) I <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-2">rarely</b> go for a walk in the park.</span>
                 </li>
                 <li className="hidden md:block">– And the <b>end position</b> at the end of a clause:
-                  <span className="block pl-4 italic text-muted-foreground">3) I don't go for a walk in the park <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-4">often</b>.</span>
+                  <span className="block pl-3 italic text-muted-foreground">3) I don't go for a walk in the park <b className="not-italic text-foreground underline decoration-magenta decoration-2 underline-offset-2">often</b>.</span>
                 </li>
               </ul>
             </div>
             {/* 外教画中画 */}
-            <div className="absolute top-3 right-3 flex h-16 w-24 flex-col items-center justify-end overflow-hidden rounded-lg border border-white/20 md:h-24 md:w-36"
+            <div className="absolute top-2.5 right-2.5 flex h-14 w-20 flex-col items-center justify-end overflow-hidden rounded-lg border border-white/20 md:h-20 md:w-28"
               style={{ background: "linear-gradient(160deg,#5000ff 0%,#dc3dbe 70%,#ffb500 130%)" }}
             >
-              <div className="mb-1 grid h-9 w-9 place-items-center rounded-full bg-white/25 text-base md:h-14 md:w-14 md:text-2xl">👨‍🏫</div>
-              <span className="w-full bg-black/50 py-0.5 text-center text-[9px] font-semibold md:text-[10px]">Gel Tutor · 外教</span>
+              <div className="mb-0.5 grid h-7 w-7 place-items-center rounded-full bg-white/25 text-sm md:h-10 md:w-10 md:text-xl">👨‍🏫</div>
+              <span className="w-full bg-black/50 py-0.5 text-center text-[8px] font-semibold md:text-[9px]">Gel Tutor · 外教</span>
             </div>
             {/* 控制条 */}
-            <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/90 to-transparent px-4 pt-6 pb-2.5">
+            <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 bg-gradient-to-t from-black/90 to-transparent px-3 pt-5 pb-2">
               <button
                 onClick={() => setPlaying((p) => !p)}
-                className="grid h-8 w-8 place-items-center rounded-full bg-white/15 transition-colors hover:bg-white/30"
+                className="grid h-7 w-7 place-items-center rounded-full bg-white/15 transition-colors hover:bg-white/30"
                 aria-label={playing ? "暂停" : "播放"}
               >
-                {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
               </button>
-              <span className="text-[10px] tabular-nums text-white/80">6:47 / 29:41</span>
+              <span className="text-[9px] tabular-nums text-white/80">6:47 / 29:41</span>
               <div className="relative h-1 flex-1 overflow-hidden rounded-full bg-white/25">
                 <div
                   className="absolute inset-y-0 left-0 rounded-full"
@@ -289,8 +289,8 @@ export function CoursesMock() {
                   }}
                 />
               </div>
-              <Volume2 className="h-4 w-4 text-white/80" />
-              <Maximize2 className="h-4 w-4 text-white/80" />
+              <Volume2 className="h-3.5 w-3.5 text-white/80" />
+              <Maximize2 className="h-3.5 w-3.5 text-white/80" />
             </div>
           </div>
         </div>
