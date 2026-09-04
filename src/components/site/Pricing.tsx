@@ -150,39 +150,23 @@ export function Pricing() {
             {TOKENS.map((t) => (
               <div
                 key={t.n}
-                className={`lift-on-hover relative flex flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 ${
-                  t.featured
-                    ? "group bg-white text-navy border border-border hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
-                    : "bg-card border border-border"
-                }`}
+                className="lift-on-hover group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
               >
                 {/* 装饰 T 水印 */}
                 <span
                   aria-hidden
-                  className={`pointer-events-none absolute -right-5 -bottom-10 font-display text-[150px] leading-none font-extrabold select-none ${
-                    t.featured
-                      ? "opacity-[0.05] text-primary group-hover:opacity-[0.14] group-hover:text-white"
-                      : "opacity-[0.05] text-primary"
-                  }`}
+                  className="pointer-events-none absolute -right-5 -bottom-10 font-display text-[150px] leading-none font-extrabold select-none text-primary opacity-[0.05] transition-opacity group-hover:opacity-[0.14] group-hover:text-white"
                 >
                   T
                 </span>
 
-                <span
-                  className={`grid h-11 w-11 place-items-center rounded-xl font-display text-lg font-extrabold ${
-                    t.featured
-                      ? "bg-magenta-soft text-plum group-hover:bg-white/20 group-hover:text-white"
-                      : "bg-magenta-soft text-plum"
-                  }`}
-                >
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-magenta-soft font-display text-lg font-extrabold text-plum transition-colors group-hover:bg-white/20 group-hover:text-white">
                   T
                 </span>
 
                 <div className="mt-5 font-display text-xl font-extrabold">{t.n}</div>
-                <div className="mt-0.5 text-xs opacity-85 group-hover:opacity-100">
-                  <span className={t.featured ? "text-muted-foreground group-hover:text-white/85" : "text-muted-foreground"}>
-                    {t.tag}
-                  </span>
+                <div className="mt-0.5 text-xs opacity-85 transition-opacity group-hover:opacity-100">
+                  <span className="text-muted-foreground transition-colors group-hover:text-white/85">{t.tag}</span>
                 </div>
 
                 <div className="mt-5 flex items-start gap-0.5">
@@ -190,26 +174,12 @@ export function Pricing() {
                   <span className="font-display text-4xl font-extrabold tracking-tight">{t.price}</span>
                 </div>
 
-                <p
-                  className={`mt-5 flex items-start gap-1.5 text-xs leading-relaxed ${
-                    t.featured ? "text-muted-foreground group-hover:text-white/90" : "text-muted-foreground"
-                  }`}
-                >
-                  <Check
-                    className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${
-                      t.featured ? "text-magenta group-hover:text-white" : "text-magenta"
-                    }`}
-                  />
+                <p className="mt-5 flex items-start gap-1.5 text-xs leading-relaxed text-muted-foreground transition-colors group-hover:text-white/90">
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-magenta transition-colors group-hover:text-white" />
                   {t.desc}
                 </p>
 
-                <button
-                  className={`relative z-10 mt-6 w-full rounded-xl py-3 text-sm font-bold transition-opacity hover:opacity-90 ${
-                    t.featured
-                      ? "bg-navy text-white group-hover:bg-white group-hover:text-plum"
-                      : "bg-navy text-white"
-                  }`}
-                >
+                <button className="relative z-10 mt-6 w-full rounded-xl bg-navy py-3 text-sm font-bold text-white transition-colors hover:opacity-90 group-hover:bg-white group-hover:text-plum">
                   立即购买
                 </button>
               </div>
