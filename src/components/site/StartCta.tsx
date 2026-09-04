@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import logoAsset from "@/assets/AIELTS-logo.png.asset.json";
 
 const ENTRIES = [
-  { title: "0 元快速测评", desc: "10 分钟看清当前英语能力水平", price: "免费" },
+  { title: "0 元快速测评", desc: "25分钟快速看清雅思水平", price: "免费" },
   { title: "¥29.9 迷你模考", desc: "能力分析报告 + 测评结果解读", price: "¥29.9" },
 ];
 
