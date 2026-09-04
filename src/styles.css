@@ -207,6 +207,10 @@
   }
 }
 
+@keyframes draw-curve {
+  to { stroke-dashoffset: 0; }
+}
+
 @keyframes breathe {
   0%,
   100% {
