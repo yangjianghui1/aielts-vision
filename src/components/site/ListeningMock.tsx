@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Info, Pause, Play, SquarePen, Star, Volume2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Info, Pause, Play, SquarePen, Volume2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Opt = { key: string; label: string };
@@ -89,7 +89,6 @@ export function ListeningMock() {
   const [openFeedback, setOpenFeedback] = useState<number | null>(1);
   const [picked, setPicked] = useState<Record<number, string>>({ 1: "A", 2: "A", 3: "A", 4: "A" });
   const [translated, setTranslated] = useState(false);
-  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     if (!playing) return;
@@ -117,38 +116,6 @@ export function ListeningMock() {
           </div>
           <button className="grid h-9 w-9 place-items-center rounded-lg text-primary transition-colors hover:bg-primary/10" aria-label="记笔记">
             <SquarePen className="h-5 w-5" />
-          </button>
-        </div>
-      </div>
-
-      {/* AI 反馈就绪条 */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-secondary/60 px-5 py-2.5">
-        <div className="flex items-center gap-2">
-          <span className="rounded-md border border-border bg-card px-2 py-0.5 font-display text-xs font-extrabold text-foreground">
-            FlexCheck AI
-          </span>
-          <span className="rounded bg-accent/90 px-1.5 py-0.5 text-[9px] font-bold text-ink">BETA</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1">
-            <span className="mr-1 hidden text-[10px] text-muted-foreground sm:block">请为此翻译评分</span>
-            {[1, 2, 3, 4, 5].map((s) => (
-              <button key={s} onClick={() => setRating(s)} aria-label={`评分 ${s} 星`}>
-                <Star
-                  className={cn(
-                    "h-3.5 w-3.5 transition-colors",
-                    s <= rating ? "fill-accent text-accent" : "text-muted-foreground/50 hover:text-accent",
-                  )}
-                />
-              </button>
-            ))}
-          </div>
-          <button
-            onClick={() => setTranslated((v) => !v)}
-            className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
-            style={{ background: "var(--gradient-brand)" }}
-          >
-            {translated ? "切换至中文" : "切换至英语"}
           </button>
         </div>
       </div>
