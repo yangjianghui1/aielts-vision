@@ -109,7 +109,7 @@ export function Footer() {
           </div>
 
           {/* 联系客服 */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <h3 className="text-sm font-bold text-foreground">联系客服</h3>
             <div className="mt-4 flex h-28 w-28 items-center justify-center rounded-xl border border-border bg-white shadow-sm">
               <QrCode className="h-20 w-20 text-foreground" strokeWidth={1.2} />
@@ -120,7 +120,7 @@ export function Footer() {
           </div>
 
           {/* 关注我们 */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <h3 className="text-sm font-bold text-foreground">关注我们</h3>
             <div className="mt-4 flex gap-3">
               {SOCIALS.map((s) => (
