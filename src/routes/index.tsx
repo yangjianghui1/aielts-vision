@@ -38,8 +38,10 @@ function Index() {
         <Stats />
         <Capabilities />
         <MockScroll />
+        <MockTestProduct />
         <Pricing />
         <Stories />
+        <Insights />
         <Faq />
         <StartCta />
       </main>
