@@ -47,7 +47,7 @@ export function Stories() {
         <Reveal>
           <div className="eyebrow">Stories</div>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">
-            43 万中国考生的提分现场。
+            43 万中国考生的提分现场
           </h2>
         </Reveal>
       </div>
