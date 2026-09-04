@@ -89,6 +89,7 @@ export function ListeningMock() {
   const [openFeedback, setOpenFeedback] = useState<number | null>(1);
   const [picked, setPicked] = useState<Record<number, string>>({ 1: "A", 2: "A", 3: "A", 4: "A" });
   const [translated, setTranslated] = useState(false);
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     if (!playing) return;
@@ -128,21 +129,28 @@ export function ListeningMock() {
           </span>
           <span className="rounded bg-accent/90 px-1.5 py-0.5 text-[9px] font-bold text-ink">BETA</span>
         </div>
-        <div className="flex items-center gap-1.5 text-xs font-medium text-primary">
-          <CheckCircle2 className="h-4 w-4" />
-          您的AI反馈已准备就绪！点击
-          <span className="grid h-4 w-4 place-items-center rounded-full bg-primary text-primary-foreground">
-            <Info className="h-2.5 w-2.5" />
-          </span>
-          （info）图标查看。
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1">
+            <span className="mr-1 hidden text-[10px] text-muted-foreground sm:block">请为此翻译评分</span>
+            {[1, 2, 3, 4, 5].map((s) => (
+              <button key={s} onClick={() => setRating(s)} aria-label={`评分 ${s} 星`}>
+                <Star
+                  className={cn(
+                    "h-3.5 w-3.5 transition-colors",
+                    s <= rating ? "fill-accent text-accent" : "text-muted-foreground/50 hover:text-accent",
+                  )}
+                />
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => setTranslated((v) => !v)}
+            className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
+            style={{ background: "var(--gradient-brand)" }}
+          >
+            {translated ? "切换至英语" : "切换至英语"}
+          </button>
         </div>
-        <button
-          onClick={() => setTranslated((v) => !v)}
-          className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
-          style={{ background: "var(--gradient-brand)" }}
-        >
-          翻译（测试版）
-        </button>
       </div>
 
       {/* 题目区 */}
