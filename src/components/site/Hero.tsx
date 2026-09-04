@@ -93,30 +93,30 @@ export function Hero() {
         {/* 仿真学习进度面板 */}
         <Reveal delay={160}>
           <div
-            className="relative overflow-hidden rounded-2xl p-6 text-white md:p-7"
-            style={{ background: "#060633", boxShadow: "var(--shadow-lift)" }}
+            className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-5 tracking-tight backdrop-blur-xl md:p-6"
+            style={{ boxShadow: "var(--shadow-lift)" }}
           >
             {/* 顶部切换 */}
-            <div className="flex rounded-full bg-white/10 p-1 text-xs font-semibold">
-              <span className="flex-1 rounded-full bg-white/20 py-2 text-center">所有练习</span>
-              <span className="flex-1 py-2 text-center text-white/50">仅模拟测试</span>
+            <div className="flex rounded-full bg-muted p-1 text-[11px] font-semibold">
+              <span className="flex-1 rounded-full bg-background py-1.5 text-center shadow-sm">所有练习</span>
+              <span className="flex-1 py-1.5 text-center text-muted-foreground">仅模拟测试</span>
             </div>
 
             {/* 分数总览 */}
-            <div className="mt-5 flex items-start justify-between">
+            <div className="mt-4 flex items-start justify-between">
               <div>
-                <div className="font-display text-xl font-bold">您的进度 *</div>
-                <div className="mt-0.5 text-xs text-white/50">雅思分数段</div>
+                <div className="font-display text-lg font-bold">您的进度 *</div>
+                <div className="mt-0.5 text-[11px] text-muted-foreground">雅思分数段</div>
               </div>
               <div className="flex items-end gap-1.5 font-display leading-none">
-                <CountUp to={7.5} decimals={1} className="text-4xl font-extrabold" />
-                <span className="pb-0.5 text-lg font-bold text-white/40">/ 9.0</span>
+                <CountUp to={7.5} decimals={1} className="text-3xl font-extrabold" />
+                <span className="pb-0.5 text-base font-bold text-muted-foreground">/ 9.0</span>
               </div>
             </div>
 
-            {/* 上升曲线 */}
-            <div className="mt-4">
-              <svg viewBox="0 0 440 140" className="w-full">
+            {/* 上升曲线 + 纵轴 */}
+            <div className="mt-3">
+              <svg viewBox="0 0 460 120" className="w-full">
                 <defs>
                   <linearGradient id="heroCurve" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stopColor="#5000ff" />
@@ -124,24 +124,41 @@ export function Hero() {
                     <stop offset="100%" stopColor="#ffb500" />
                   </linearGradient>
                   <linearGradient id="heroCurveFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#5000ff" stopOpacity="0.35" />
+                    <stop offset="0%" stopColor="#5000ff" stopOpacity="0.28" />
                     <stop offset="100%" stopColor="#5000ff" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-                <path d={`${CURVE} L440,140 L0,140 Z`} fill="url(#heroCurveFill)" />
-                <path
-                  d={CURVE}
-                  fill="none"
-                  stroke="url(#heroCurve)"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  pathLength={1}
-                  strokeDasharray={1}
-                  strokeDashoffset={1}
-                  style={{ animation: "draw-curve 1.8s ease-out 0.4s forwards" }}
-                />
+                {/* 纵轴分数标签 */}
+                <g className="text-[9px] fill-muted-foreground">
+                  <text x="4" y="108">5.5</text>
+                  <text x="4" y="82">6.5</text>
+                  <text x="4" y="56">7.5</text>
+                  <text x="4" y="30">8.5</text>
+                </g>
+                {/* 水平网格线 */}
+                <g stroke="currentColor" strokeWidth="0.5" className="text-border">
+                  <line x1="28" y1="104" x2="460" y2="104" />
+                  <line x1="28" y1="78" x2="460" y2="78" />
+                  <line x1="28" y1="52" x2="460" y2="52" />
+                  <line x1="28" y1="26" x2="460" y2="26" />
+                </g>
+                {/* 曲线填充与线条 */}
+                <g transform="translate(28, 0)">
+                  <path d={`${CURVE} L440,120 L0,120 Z`} fill="url(#heroCurveFill)" />
+                  <path
+                    d={CURVE}
+                    fill="none"
+                    stroke="url(#heroCurve)"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    pathLength={1}
+                    strokeDasharray={1}
+                    strokeDashoffset={1}
+                    style={{ animation: "draw-curve 1.8s ease-out 0.4s forwards" }}
+                  />
+                </g>
               </svg>
-              <div className="mt-1 grid grid-cols-4 text-center text-[10px] text-white/40">
+              <div className="mt-1 grid grid-cols-4 gap-1 pl-7 text-center text-[10px] text-muted-foreground">
                 {WEEKS.map((w) => (
                   <span key={w}>{w}</span>
                 ))}
@@ -149,60 +166,60 @@ export function Hero() {
             </div>
 
             {/* 四项分数 */}
-            <div className="mt-5 grid grid-cols-2 gap-2.5">
+            <div className="mt-4 grid grid-cols-2 gap-2">
               {SKILLS.map((s) => (
                 <div
                   key={s.label}
-                  className="flex items-center justify-between rounded-full bg-white/10 px-4 py-2.5"
+                  className="flex items-center justify-between rounded-full border border-border bg-muted/60 px-3 py-2"
                 >
-                  <span className="flex items-center gap-2 text-xs font-semibold">
-                    <s.icon className="h-4 w-4" style={{ color: s.color }} />
+                  <span className="flex items-center gap-1.5 text-[11px] font-semibold">
+                    <s.icon className="h-3.5 w-3.5" style={{ color: s.color }} />
                     {s.label}
                   </span>
-                  <span className="font-display text-lg font-bold">{s.score.toFixed(1)}</span>
+                  <span className="font-display text-base font-bold">{s.score.toFixed(1)}</span>
                 </div>
               ))}
             </div>
 
             {/* 学习数据 */}
-            <div className="mt-4 rounded-2xl border border-white/15 p-4">
-              <div className="grid grid-cols-2 divide-x divide-white/10">
-                <div className="pr-4">
-                  <div className="flex items-center gap-1.5 text-xs text-white/50">
-                    <Clock className="h-3.5 w-3.5 text-primary-bright" />
+            <div className="mt-3 rounded-xl border border-border p-3">
+              <div className="grid grid-cols-2 divide-x divide-border">
+                <div className="pr-3">
+                  <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                    <Clock className="h-3 w-3 text-primary-bright" />
                     学习时长
                   </div>
-                  <div className="mt-1 font-display text-lg font-bold">54min 14sec</div>
+                  <div className="mt-0.5 font-display text-base font-bold">54min 14sec</div>
                 </div>
-                <div className="pl-4">
-                  <div className="flex items-center gap-1.5 text-xs text-white/50">
-                    <FileQuestion className="h-3.5 w-3.5 text-magenta" />
+                <div className="pl-3">
+                  <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                    <FileQuestion className="h-3 w-3 text-magenta" />
                     练习题数
                   </div>
-                  <div className="mt-1 font-display text-lg font-bold">14</div>
+                  <div className="mt-0.5 font-display text-base font-bold">14</div>
                 </div>
               </div>
-              <div className="mt-3 border-t border-white/10 pt-3">
-                <div className="flex items-center gap-1.5 text-xs text-white/50">
-                  <BadgeCheck className="h-3.5 w-3.5 text-primary-bright" />
+              <div className="mt-2 border-t border-border pt-2">
+                <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                  <BadgeCheck className="h-3 w-3 text-primary-bright" />
                   最佳表现题型
                 </div>
-                <div className="mt-1 font-display text-sm font-bold">
-                  IELTS Speaking Part 2 <span className="text-white/40">/ Speaking</span>
+                <div className="mt-0.5 font-display text-xs font-bold">
+                  IELTS Speaking Part 2 <span className="text-muted-foreground">/ Speaking</span>
                 </div>
               </div>
-              <div className="mt-3 border-t border-white/10 pt-3">
-                <div className="flex items-center gap-1.5 text-xs text-white/50">
-                  <TrendingUp className="h-3.5 w-3.5 text-accent" />
+              <div className="mt-2 border-t border-border pt-2">
+                <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                  <TrendingUp className="h-3 w-3 text-accent" />
                   需改进题型
                 </div>
-                <div className="mt-1 font-display text-sm font-bold">
-                  Matching information to categories <span className="text-white/40">/ Reading</span>
+                <div className="mt-0.5 font-display text-xs font-bold">
+                  Matching information to categories <span className="text-muted-foreground">/ Reading</span>
                 </div>
               </div>
             </div>
 
-            <p className="mt-3 text-[10px] leading-relaxed text-white/35">
+            <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground/70">
               * 本系统提供的分数是基于练习测试的雅思预估分数，可能与您的实际雅思考试成绩有所差异。
             </p>
           </div>
