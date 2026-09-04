@@ -136,7 +136,7 @@ export function Pricing() {
             <div>
               <div className="eyebrow">AI Credits</div>
               <h3 className="mt-2 font-display text-2xl font-extrabold md:text-3xl">
-                Token 充值包，随用随充。
+                Token 充值包，随用随充
               </h3>
             </div>
             <p className="max-w-md text-sm text-muted-foreground">
