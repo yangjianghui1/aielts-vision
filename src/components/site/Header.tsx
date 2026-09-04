@@ -42,13 +42,6 @@ export function Header() {
               {n.label}
             </a>
           ))}
-          <Link
-            to="/partners"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            activeProps={{ className: "text-foreground" }}
-          >
-            机构合作
-          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
