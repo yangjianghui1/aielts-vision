@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { GrowBar } from "@/components/motion/CountUp";
 import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingRecorder";
+import { SampleEssays } from "@/components/site/SampleEssays";
 import { cn } from "@/lib/utils";
 
 type Cap = {
