@@ -66,7 +66,6 @@ const SECTIONS: Section[] = [
 ];
 
 export function WritingFeedback() {
-  const [openQ, setOpenQ] = useState(false);
   const [openIdx, setOpenIdx] = useState<number | null>(1);
   const [perfOpen, setPerfOpen] = useState(true);
 
