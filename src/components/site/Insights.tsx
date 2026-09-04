@@ -30,10 +30,10 @@ export function Insights() {
   return (
     <section id="insights" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 md:py-32">
       <Reveal>
-        <div className="text-center">
+        <div>
           <div className="eyebrow">IELTS Insights</div>
           <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.1] font-extrabold">备考动态</h2>
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
             紧跟考试政策变化，掌握机考流程与实用备考方法。
           </p>
         </div>
