@@ -63,7 +63,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "vocab",
-    no: "05",
+    no: "06",
     name: "AI 词汇能力分析",
     tag: "词汇画像",
     desc: "从你的真实产出中提取词汇广度、学术词占比与重复率，给出目标分段的替换词表。",
@@ -72,7 +72,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "path",
-    no: "06",
+    no: "07",
     name: "AI 学习路径规划",
     tag: "按考试日期倒推",
     desc: "根据诊断结果与考试日期生成周计划，漏练自动重排，不制造愧疚感。",
@@ -81,7 +81,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "boost",
-    no: "07",
+    no: "08",
     name: "AI 领航强化训练",
     tag: "薄弱项专项",
     desc: "把报告里的短板变成每日 20 分钟的定向训练，配 119 节直播 + 录播课程。",
@@ -91,6 +91,10 @@ const CAPS: Cap[] = [
 ];
 
 function Panel({ cap }: { cap: Cap }) {
+  if (cap.panel === "essay") {
+    return <SampleEssays />;
+  }
+
   if (cap.panel === "speak") {
     return (
       <div className="grid gap-4 xl:grid-cols-2">
