@@ -169,33 +169,33 @@ export function CoursesMock() {
       </div>
 
       {/* 今日课程 */}
-      <div className="px-4 py-4 md:px-6">
-        <div className="mb-3 flex items-baseline justify-between">
-          <span className="font-display text-lg font-extrabold">今天</span>
-          <span className="text-xs text-muted-foreground">9 月 4 日</span>
+      <div className="px-4 py-3 md:px-5">
+        <div className="mb-2 flex items-baseline justify-between">
+          <span className="font-display text-base font-extrabold">今天</span>
+          <span className="text-[11px] text-muted-foreground">9 月 4 日</span>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {list.map((c) => {
             const isJoined = !!joined[c.id];
             return (
               <div
                 key={c.id}
-                className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-4 transition-shadow hover:shadow-md sm:flex-row sm:items-center"
+                className="flex flex-col gap-3 rounded-xl border border-border bg-card p-3 transition-shadow hover:shadow-md sm:flex-row sm:items-center"
               >
-                <div className="flex min-w-0 flex-1 items-start gap-3">
+                <div className="flex min-w-0 flex-1 items-start gap-2.5">
                   <span
                     className={cn(
-                      "grid h-11 w-11 shrink-0 place-items-center rounded-full font-display text-sm font-bold",
+                      "grid h-9 w-9 shrink-0 place-items-center rounded-full font-display text-xs font-bold",
                       c.iconBg,
                     )}
                   >
                     {c.icon}
                   </span>
                   <div className="min-w-0">
-                    <div className="truncate font-display text-sm font-bold md:text-base">{c.title}</div>
-                    <div className="mt-0.5 line-clamp-1 text-xs text-muted-foreground md:text-sm">{c.desc}</div>
-                    <div className="mt-1.5 flex items-center gap-1 text-[11px] text-muted-foreground">
+                    <div className="truncate font-display text-[13px] font-bold md:text-sm">{c.title}</div>
+                    <div className="mt-0 line-clamp-1 text-[11px] text-muted-foreground">{c.desc}</div>
+                    <div className="mt-1 flex items-center gap-1 text-[10px] text-muted-foreground">
                       <Clock className="h-3 w-3" />
                       {c.time}
                     </div>
@@ -205,7 +205,7 @@ export function CoursesMock() {
                   <button
                     onClick={() => setJoined((s) => ({ ...s, [c.id]: !s[c.id] }))}
                     className={cn(
-                      "min-w-24 flex-1 rounded-full px-5 py-2.5 text-sm font-semibold transition-all sm:flex-none",
+                      "min-w-20 flex-1 rounded-full px-4 py-2 text-xs font-semibold transition-all sm:flex-none",
                       isJoined
                         ? "bg-primary/10 text-primary"
                         : "bg-foreground text-background hover:opacity-85",
@@ -213,8 +213,8 @@ export function CoursesMock() {
                   >
                     {isJoined ? "已注册 ✓" : "注册"}
                   </button>
-                  <button className="flex min-w-24 flex-1 items-center justify-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:border-primary/40 hover:text-primary sm:flex-none">
-                    <Play className="h-3.5 w-3.5" />
+                  <button className="flex min-w-20 flex-1 items-center justify-center gap-1 rounded-full border border-border px-4 py-2 text-xs font-semibold transition-colors hover:border-primary/40 hover:text-primary sm:flex-none">
+                    <Play className="h-3 w-3" />
                     观看回放
                   </button>
                 </div>
@@ -222,7 +222,7 @@ export function CoursesMock() {
             );
           })}
           {list.length === 0 && (
-            <div className="rounded-2xl border border-dashed border-border py-10 text-center text-sm text-muted-foreground">
+            <div className="rounded-2xl border border-dashed border-border py-8 text-center text-xs text-muted-foreground">
               没有符合条件的课程，换个筛选试试
             </div>
           )}
