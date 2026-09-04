@@ -35,7 +35,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "A",
     feedback:
-      "Correct! Sally mentions travelling through Africa and North America, but says Europe is “still on the list”, so A - Europe is the continent she did NOT visit.",
+      "答对了！Sally 提到她去过非洲和北美旅行，但说欧洲“还在清单上”，所以 A - Europe 是她没有去过的大洲。",
   },
   {
     no: 3,
@@ -47,7 +47,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "A",
     feedback:
-      "Sally says she “writes features for a national paper”, which corresponds to A - Journalist. She used to write travel pieces, but that is not her current job.",
+      "答对了！Sally 说她“为一家全国性报纸写专题报道”，对应 A - Journalist。她以前写过旅行文章，但那不是她现在的工作。",
   },
   {
     no: 4,
@@ -59,7 +59,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "A",
     feedback:
-      "Correct! Sally says “no kids yet — just the dog”, so the answer is A - None.",
+      "答对了！Sally 说“还没要孩子——只养了只狗”，所以答案是 A - None。",
   },
   {
     no: 5,
@@ -70,7 +70,7 @@ const QUESTIONS: Q[] = [
     ],
     correct: "B",
     feedback:
-      "Heath says they “tied the knot the summer after we graduated”, so B - The year after graduation is correct.",
+      "Heath 说他们“毕业后的那个夏天结的婚”，所以 B - The year after graduation 是正确答案。",
   },
 ];
 
