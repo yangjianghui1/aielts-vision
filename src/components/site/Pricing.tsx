@@ -66,8 +66,8 @@ export function Pricing() {
         {PLANS.map((p, i) => (
           <Reveal key={p.name} delay={i * 90}>
             <div
-              className="surface-card lift-on-hover group relative h-full p-8 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
-              style={p.featured ? { borderColor: "var(--primary)", boxShadow: "var(--shadow-lift)" } : undefined}
+              className="surface-card lift-on-hover group relative h-full border-primary p-8 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
+              style={p.featured ? { boxShadow: "var(--shadow-lift)" } : undefined}
             >
               <span
                 className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-primary-foreground transition-colors group-hover:bg-white group-hover:text-primary ${
@@ -90,7 +90,7 @@ export function Pricing() {
                 </span>
               </div>
 
-              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border transition-colors group-hover:border-white/20 group-hover:bg-transparent">
+              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-primary/25 bg-border transition-colors group-hover:border-white/20 group-hover:bg-transparent">
                 {p.rows.map(([v, l]) => (
                   <div key={l} className="bg-card px-3 py-4 text-center transition-colors group-hover:bg-transparent">
                     <div className="font-display text-lg font-extrabold text-primary transition-colors group-hover:text-white">
@@ -107,9 +107,7 @@ export function Pricing() {
 
               <a
                 href="#cta"
-                className={`mt-7 block rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-colors group-hover:bg-white group-hover:text-primary ${
-                  p.featured ? "bg-primary text-primary-foreground" : "border border-border"
-                }`}
+                className="mt-7 block rounded-xl bg-primary px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors group-hover:bg-white group-hover:text-primary"
               >
                 {p.cta}
               </a>
@@ -150,7 +148,7 @@ export function Pricing() {
             {TOKENS.map((t) => (
               <div
                 key={t.n}
-                className="lift-on-hover group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
+                className="lift-on-hover group relative flex flex-col overflow-hidden rounded-2xl border border-primary bg-card p-6 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
               >
                 {/* 装饰 T 水印 */}
                 <span
