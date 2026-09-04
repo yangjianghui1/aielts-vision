@@ -90,7 +90,7 @@ export function Pricing() {
                 </span>
               </div>
 
-              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border transition-colors group-hover:border-white/20">
+              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border transition-colors group-hover:border-white/20 group-hover:bg-transparent">
                 {p.rows.map(([v, l]) => (
                   <div key={l} className="bg-card px-3 py-4 text-center transition-colors group-hover:bg-transparent">
                     <div className="font-display text-lg font-extrabold text-primary transition-colors group-hover:text-white">
