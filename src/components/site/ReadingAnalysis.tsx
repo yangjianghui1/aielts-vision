@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckCircle2, ChevronLeft, ChevronRight, Info, SquarePen, Star, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Info, SquarePen, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PARTS = [
@@ -103,7 +103,6 @@ function FeedbackBubble({ text, onClose }: { text: string; onClose: () => void }
 export function ReadingAnalysis() {
   const [part, setPart] = useState(1);
   const [en, setEn] = useState(false);
-  const [rating, setRating] = useState(0);
   const [openFeedback, setOpenFeedback] = useState<number | null>(8);
   const [pick8, setPick8] = useState<string>("TRUE");
   const [pick9, setPick9] = useState<string>("B");
@@ -125,46 +124,6 @@ export function ReadingAnalysis() {
           </div>
           <button className="grid h-9 w-9 place-items-center rounded-lg text-primary transition-colors hover:bg-primary/10" aria-label="记笔记">
             <SquarePen className="h-5 w-5" />
-          </button>
-        </div>
-      </div>
-
-      {/* AI 反馈就绪条 */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-secondary/60 px-5 py-2.5">
-        <div className="flex items-center gap-2">
-          <span className="rounded-md border border-border bg-card px-2 py-0.5 font-display text-xs font-extrabold">
-            FlexCheck AI
-          </span>
-          <span className="rounded bg-accent/90 px-1.5 py-0.5 text-[9px] font-bold text-ink">BETA</span>
-        </div>
-        <div className="flex items-center gap-1.5 text-xs font-medium text-primary">
-          <CheckCircle2 className="h-4 w-4" />
-          您的AI反馈已准备就绪！点击
-          <span className="grid h-4 w-4 place-items-center rounded-full bg-primary text-primary-foreground">
-            <Info className="h-2.5 w-2.5" />
-          </span>
-          （info）图标查看。
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1">
-            <span className="mr-1 hidden text-[10px] text-muted-foreground sm:block">请为此翻译评分</span>
-            {[1, 2, 3, 4, 5].map((s) => (
-              <button key={s} onClick={() => setRating(s)} aria-label={`评分 ${s} 星`}>
-                <Star
-                  className={cn(
-                    "h-3.5 w-3.5 transition-colors",
-                    s <= rating ? "fill-accent text-accent" : "text-muted-foreground/50 hover:text-accent",
-                  )}
-                />
-              </button>
-            ))}
-          </div>
-          <button
-            onClick={() => setEn((v) => !v)}
-            className="rounded-full px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
-            style={{ background: "var(--gradient-brand)" }}
-          >
-            {en ? "切换至中文" : "切换至英语"}
           </button>
         </div>
       </div>
