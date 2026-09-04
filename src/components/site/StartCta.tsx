@@ -73,14 +73,98 @@ export function StartCta() {
   );
 }
 
+const PRODUCT_LINKS = ["Mini Mock 迷你模考", "IELTS Mock Test 全真模考", "冲刺卡", "学期卡"];
+const SUPPORT_LINKS = ["服务条款", "隐私政策"];
+
+const SOCIALS = [
+  { name: "小红书", icon: <span className="font-display text-[11px] font-extrabold">小红书</span> },
+  { name: "抖音", icon: <Music2 className="h-5 w-5" /> },
+  { name: "微信公众号", icon: <MessageCircle className="h-5 w-5" /> },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t border-border py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-xs text-muted-foreground sm:flex-row">
-        <div className="flex items-center gap-2">
-          <img src={logoAsset.url} alt="AIELTS 语焉" className="h-6 w-auto" />
+    <footer className="border-t border-border bg-white">
+      <div className="mx-auto max-w-6xl px-5 py-14">
+        <div className="grid gap-10 md:grid-cols-12">
+          {/* 品牌 */}
+          <div className="md:col-span-4">
+            <img src={logoAsset.url} alt="AIELTS 语焉" className="h-8 w-auto" />
+            <p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">
+              英国文化教育协会（British Council）合作伙伴，专注提供系统性的英语备考课程与资料。
+            </p>
+          </div>
+
+          {/* 产品 */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-bold text-foreground">产品</h3>
+            <ul className="mt-4 space-y-2.5">
+              {PRODUCT_LINKS.map((l) => (
+                <li key={l}>
+                  <a href="#pricing" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 支持 */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-bold text-foreground">支持</h3>
+            <ul className="mt-4 space-y-2.5">
+              {SUPPORT_LINKS.map((l) => (
+                <li key={l}>
+                  <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 联系客服 */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-bold text-foreground">联系客服</h3>
+            <div className="mt-4 flex h-28 w-28 items-center justify-center rounded-xl border border-border bg-white shadow-sm">
+              <QrCode className="h-20 w-20 text-foreground" strokeWidth={1.2} />
+            </div>
+            <p className="mt-3 text-xs leading-5 text-muted-foreground">
+              扫码咨询课程 / 会员 / 账号 / 备考答疑
+            </p>
+          </div>
+
+          {/* 关注我们 */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-bold text-foreground">关注我们</h3>
+            <div className="mt-4 flex gap-3">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.name}
+                  href="#"
+                  aria-label={s.name}
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:text-primary"
+                  style={{ boxShadow: "0 2px 8px -2px rgba(0,0,102,0.08)" }}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+            <p className="mt-3 text-xs leading-5 text-muted-foreground">
+              关注获取备考资料、学习干货、模考资讯、近期活动
+            </p>
+          </div>
         </div>
-        <p>© 2026 语焉雅思 · 获英国文化教育协会（British Council）支持</p>
+      </div>
+
+      {/* 底栏 */}
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-muted-foreground sm:flex-row">
+          <p>© 2026 语焉智能科技（北京）有限公司 版权所有</p>
+          <a href="https://beian.miit.gov.cn" target="_blank" rel="noreferrer" className="transition-colors hover:text-primary">
+            京ICP备2024093358号-4
+          </a>
+        </div>
       </div>
     </footer>
   );
