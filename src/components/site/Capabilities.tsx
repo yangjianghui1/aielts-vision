@@ -18,7 +18,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample" | "listening" | "reading" | "courses";
 };
 
 const CAPS: Cap[] = [
@@ -88,11 +88,11 @@ const CAPS: Cap[] = [
   {
     id: "boost",
     no: "08",
-    name: "AI 领航强化训练",
-    tag: "薄弱项专项",
-    desc: "把报告里的短板变成每日 20 分钟的定向训练，配 119 节直播 + 录播课程。",
-    meta: "每日 20 分钟",
-    panel: "path",
+    name: "200+外教课程",
+    tag: "地道口语强输出",
+    desc: "200+ 节外教直播与录播课程，覆盖听说读写与语法全类别，按类别、时长自由筛选，注册直播或随时观看回放。",
+    meta: "直播 + 回放 · 每日更新",
+    panel: "courses",
   },
 ];
 
