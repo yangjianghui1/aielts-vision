@@ -39,11 +39,8 @@ export function MockTestProduct() {
           {/* 左：产品信息 */}
           <div className="lg:border-r lg:border-border lg:pr-10">
             <div className="flex items-center gap-3">
-              <span
-                className="grid h-12 w-12 place-items-center rounded-2xl"
-                style={{ background: "color-mix(in oklab, var(--magenta) 14%, white)" }}
-              >
-                <Sparkles className="h-6 w-6 text-accent" />
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10">
+                <Sparkles className="h-6 w-6 text-primary" />
               </span>
               <div>
                 <h3 className="font-display text-2xl font-extrabold md:text-3xl">全真模考</h3>
@@ -51,7 +48,7 @@ export function MockTestProduct() {
             </div>
 
             <span className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-              <Clock className="h-3.5 w-3.5" />3 小时
+              <Clock className="h-3.5 w-3.5 text-primary" />3 小时
             </span>
 
             <div className="mt-6 flex items-end gap-2">
