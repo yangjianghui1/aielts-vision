@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { GrowBar } from "@/components/motion/CountUp";
 import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingRecorder";
+import { SampleEssays } from "@/components/site/SampleEssays";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -11,7 +12,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path";
+  panel: "score" | "speak" | "vocab" | "path" | "essay";
 };
 
 const CAPS: Cap[] = [
@@ -34,8 +35,17 @@ const CAPS: Cap[] = [
     panel: "score",
   },
   {
-    id: "speaking",
+    id: "essay",
     no: "03",
+    name: "AI 写作范文",
+    tag: "分数段范文对比",
+    desc: "同一道题，对照 5 到 9 分真实范文与逐维度评语，看清每一分差距到底差在哪。",
+    meta: "4 个分数段",
+    panel: "essay",
+  },
+  {
+    id: "speaking",
+    no: "04",
     name: "AI 口语评分",
     tag: "Part 1–3 全流程",
     desc: "与 AI 考官完成三部分口语模考，逐句转写，反馈流利度、发音、词汇广度与语法。",
@@ -44,7 +54,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "lr",
-    no: "04",
+    no: "05",
     name: "听力阅读分析",
     tag: "定位到题型",
     desc: "TFNG、Matching Headings、Y/N/NG —— 精确到拖慢你的那一类题，而不是泛泛刷套题。",
@@ -53,7 +63,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "vocab",
-    no: "05",
+    no: "06",
     name: "AI 词汇能力分析",
     tag: "词汇画像",
     desc: "从你的真实产出中提取词汇广度、学术词占比与重复率，给出目标分段的替换词表。",
@@ -62,7 +72,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "path",
-    no: "06",
+    no: "07",
     name: "AI 学习路径规划",
     tag: "按考试日期倒推",
     desc: "根据诊断结果与考试日期生成周计划，漏练自动重排，不制造愧疚感。",
@@ -71,7 +81,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "boost",
-    no: "07",
+    no: "08",
     name: "AI 领航强化训练",
     tag: "薄弱项专项",
     desc: "把报告里的短板变成每日 20 分钟的定向训练，配 119 节直播 + 录播课程。",
@@ -81,6 +91,10 @@ const CAPS: Cap[] = [
 ];
 
 function Panel({ cap }: { cap: Cap }) {
+  if (cap.panel === "essay") {
+    return <SampleEssays />;
+  }
+
   if (cap.panel === "speak") {
     return (
       <div className="grid gap-4 xl:grid-cols-2">
