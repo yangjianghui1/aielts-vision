@@ -127,16 +127,16 @@ export function CoursesMock() {
       </div>
 
       {/* 筛选 */}
-      <div className="space-y-2.5 border-b border-border bg-card px-4 py-3.5 md:px-6">
-        <div className="flex items-start gap-3">
-          <span className="mt-1.5 w-8 shrink-0 text-xs font-semibold text-muted-foreground">类别：</span>
+      <div className="space-y-2 border-b border-border bg-card px-4 py-2.5 md:px-5">
+        <div className="flex items-start gap-2.5">
+          <span className="mt-1 w-7 shrink-0 text-[11px] font-semibold text-muted-foreground">类别：</span>
           <div className="flex flex-wrap gap-1.5">
             {CATS.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setCat(c.id)}
                 className={cn(
-                  "rounded-full border px-3 py-1.5 text-xs font-medium transition-all",
+                  "rounded-full border px-2.5 py-1 text-[11px] font-medium transition-all",
                   cat === c.id
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card hover:border-primary/40 hover:text-primary",
@@ -147,15 +147,15 @@ export function CoursesMock() {
             ))}
           </div>
         </div>
-        <div className="flex items-start gap-3">
-          <span className="mt-1.5 w-8 shrink-0 text-xs font-semibold text-muted-foreground">时长：</span>
+        <div className="flex items-start gap-2.5">
+          <span className="mt-1 w-7 shrink-0 text-[11px] font-semibold text-muted-foreground">时长：</span>
           <div className="flex flex-wrap gap-1.5">
             {DURS.map((d) => (
               <button
                 key={d.id}
                 onClick={() => setDur(d.id)}
                 className={cn(
-                  "rounded-full border px-3 py-1.5 text-xs font-medium transition-all",
+                  "rounded-full border px-2.5 py-1 text-[11px] font-medium transition-all",
                   dur === d.id
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card hover:border-primary/40 hover:text-primary",
