@@ -13,7 +13,7 @@
 | 组件库 | Radix UI + shadcn/ui 风格组件（`src/components/ui`） |
 | 图标 | lucide-react |
 | 图表 | recharts |
-| 字体 | Sora（标题）、Manrope（正文）、Noto Sans SC（中文） |
+| 字体 | Akrobat（英文/数字）、HarmonyOS Sans SC（中文） |
 
 ---
 
@@ -37,7 +37,7 @@
 ```text
 public/                 # 静态资源（favicon、图片等）
 src/
-  assets/               # 图片、Logo、二维码等
+  assets/               # 图片、Logo、二维码、字体资源指针（*.asset.json）
   components/
     motion/             # 动画组件（CountUp、Reveal）
     site/               # 页面业务组件（Hero、Pricing、Stories 等）
@@ -47,12 +47,11 @@ src/
   routes/               # 页面路由
     __root.tsx          # 根布局（含字体、全局 head）
     index.tsx           # 首页
-    partners.tsx        # 机构合作页
   styles.css            # 全局样式 + 设计系统变量
   router.tsx            # 路由配置（如迁移可忽略）
 package.json
-vite.config.ts
 tsconfig.json
+vite.config.ts
 ```
 
 ### 需要删除/替换的后端相关文件
@@ -61,7 +60,7 @@ tsconfig.json
 |-----------|------|
 | `src/server.ts` | 服务端入口 |
 | `src/start.ts` | 启动配置（含 auth middleware） |
-| `src/lib/error-capture.ts`、`lovable-error-reporting.ts` | 错误上报，依赖 Lovable 运行时 |
+| `src/routeTree.gen.ts` | TanStack Router 自动生成，迁移时无需保留 |
 | `src/routes/api/` | 服务端 API 路由（本项目暂无，但未来若有需移除） |
 | `*.functions.ts` / `*.server.ts` | 服务端函数（本项目暂无） |
 | `.env` 中服务端密钥 | 不要提交到前端仓库 |
@@ -96,15 +95,12 @@ tsconfig.json
 ### 4.3 字体
 
 ```css
---font-heading: "Sora", "Noto Sans SC", sans-serif;
---font-body: "Manrope", "Noto Sans SC", sans-serif;
+--font-heading: "Akrobat", "HarmonyOS Sans SC", ui-sans-serif;
+--font-body: "Akrobat", "HarmonyOS Sans SC", ui-sans-serif;
 ```
 
-Google Fonts 链接在 `src/routes/__root.tsx` 的 `head()` 中：
-
-```
-https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap
-```
+字体通过 `@font-face` 在 `src/styles.css` 中自托管，资源文件为 CDN 上的 `.woff2`。
+若迁移到其他框架，需把字体文件一并迁移，并重新声明 `@font-face`。
 
 ### 4.4 圆角与阴影
 
@@ -120,8 +116,7 @@ https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrop
 
 | 页面 | 入口路由 | 主要组件 |
 |------|----------|----------|
-| 首页 | `/` | `Hero`、`Stats`、`MockScroll`、`Capabilities`、`Stories`、`Pricing`、`Faq`、`StartCta` |
-| 机构合作 | `/partners` | `partners.tsx` |
+| 首页 | `/` | `Hero`、`Stats`、`MockScroll`、`Capabilities`、`Stories`、`Pricing`、`Insights`、`Faq`、`StartCta` |
 
 ### 5.1 首页模块顺序
 
@@ -150,6 +145,14 @@ https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrop
 | AI 阅读解析 | `ReadingAnalysis.tsx` |
 | 200+ 外教课程 | `CoursesMock.tsx` |
 
+### 5.3 其他业务组件
+
+- `SpeakingRecorder.tsx` — 口语录音/评分演示
+- `ReadingMock.tsx` — 阅读模拟题演示
+- `SampleEssays.tsx` — 写作范文展示
+- `SocialLinks.tsx` — 页脚社媒图标 + 二维码弹窗
+- `Marquee.tsx` — 跑马灯基础组件
+
 ---
 
 ## 6. 迁移到其他框架的建议
@@ -167,7 +170,7 @@ https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrop
 2. **替换路由**
    - TanStack Router → Next.js App Router / Pages Router / React Router
    - `src/routes/index.tsx` → 首页
-   - `src/routes/partners.tsx` → `/partners`
+   - 当前项目无其他页面路由
 
 3. **替换动画组件**
    - `Reveal` 组件使用了 Framer Motion（或类似库），请确认目标框架是否已安装对应动画库
