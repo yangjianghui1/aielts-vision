@@ -148,7 +148,7 @@ export function Pricing() {
             {TOKENS.map((t) => (
               <div
                 key={t.n}
-                className="lift-on-hover group relative flex flex-col overflow-hidden rounded-2xl border border-primary bg-card p-6 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
+                className="lift-on-hover group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
               >
                 {/* 装饰 T 水印 */}
                 <span
@@ -177,7 +177,7 @@ export function Pricing() {
                   {t.desc}
                 </p>
 
-                <button className="relative z-10 mt-6 w-full rounded-xl bg-primary py-3 text-sm font-bold text-white transition-colors hover:opacity-90 group-hover:bg-white group-hover:text-primary">
+                <button className="relative z-10 mt-6 w-full rounded-xl bg-ink py-3 text-sm font-bold text-white transition-colors hover:opacity-90 group-hover:bg-white group-hover:text-ink">
                   立即购买
                 </button>
               </div>
