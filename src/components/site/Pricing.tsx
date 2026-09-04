@@ -66,18 +66,18 @@ export function Pricing() {
         {PLANS.map((p, i) => (
           <Reveal key={p.name} delay={i * 90}>
             <div
-              className="surface-card lift-on-hover group relative h-full border-primary p-8 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
+              className="surface-card lift-on-hover group relative h-full border-border p-8 transition-all duration-300 hover:[background:var(--gradient-brand)] hover:text-white hover:shadow-[var(--shadow-lift)] hover:border-transparent"
               style={p.featured ? { boxShadow: "var(--shadow-lift)" } : undefined}
             >
               <span
-                className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-primary-foreground transition-colors group-hover:bg-white group-hover:text-primary ${
-                  p.featured ? "bg-primary" : "bg-navy"
+                className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider transition-colors group-hover:bg-white group-hover:text-ink ${
+                  p.featured ? "bg-magenta-soft text-magenta" : "bg-accent text-accent-foreground"
                 }`}
               >
                 {p.badge}
               </span>
 
-              <div className="eyebrow transition-colors group-hover:text-white/80">Membership Plan</div>
+              <div className="eyebrow text-primary transition-colors group-hover:text-white/80">Membership Plan</div>
               <h3 className="mt-2 font-display text-2xl font-extrabold">{p.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground transition-colors group-hover:text-white/85">
                 {p.tagline}
@@ -90,7 +90,7 @@ export function Pricing() {
                 </span>
               </div>
 
-              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-primary/25 bg-border transition-colors group-hover:border-white/20 group-hover:bg-transparent">
+              <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-muted transition-colors group-hover:border-white/20 group-hover:bg-transparent">
                 {p.rows.map(([v, l]) => (
                   <div key={l} className="bg-card px-3 py-4 text-center transition-colors group-hover:bg-transparent">
                     <div className="font-display text-lg font-extrabold text-primary transition-colors group-hover:text-white">
@@ -107,7 +107,7 @@ export function Pricing() {
 
               <a
                 href="#cta"
-                className="mt-7 block rounded-xl bg-primary px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors group-hover:bg-white group-hover:text-primary"
+                className="mt-7 block rounded-xl bg-ink px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors group-hover:bg-white group-hover:text-ink"
               >
                 {p.cta}
               </a>
