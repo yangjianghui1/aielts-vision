@@ -71,8 +71,7 @@ export function MockTestProduct() {
 
             <a
               href="#cta"
-              className="mt-8 block rounded-xl px-6 py-3.5 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-              style={{ background: "var(--navy)" }}
+              className="mt-8 block rounded-xl bg-primary px-6 py-3.5 text-center text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
             >
               立即报名
             </a>
