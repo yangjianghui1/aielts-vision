@@ -1,13 +1,6 @@
-import { ArrowRight, Play, Headphones, BookOpen, PenLine, Mic } from "lucide-react";
-import { CountUp, GrowBar } from "@/components/motion/CountUp";
+import { ArrowRight, Play, Headphones, BookOpen, PenLine, Mic, Clock, FileQuestion, BadgeCheck, TrendingUp } from "lucide-react";
+import { CountUp } from "@/components/motion/CountUp";
 import { Reveal } from "@/components/motion/Reveal";
-
-const CRITERIA = [
-  { label: "任务完成度", value: 90, color: "var(--primary)" },
-  { label: "连贯与衔接", value: 88, color: "var(--primary-bright)" },
-  { label: "词汇资源", value: 82, color: "var(--magenta)" },
-  { label: "语法准确性", value: 86, color: "var(--accent)" },
-];
 
 const CHIPS = [
   { icon: Headphones, label: "听力" },
@@ -15,6 +8,17 @@ const CHIPS = [
   { icon: PenLine, label: "写作" },
   { icon: Mic, label: "口语" },
 ];
+
+const SKILLS = [
+  { icon: Mic, label: "口语", score: 7.0, color: "#ffb500" },
+  { icon: Headphones, label: "听力", score: 7.5, color: "#5000ff" },
+  { icon: PenLine, label: "写作", score: 6.5, color: "#dc3dbe" },
+  { icon: BookOpen, label: "阅读", score: 7.5, color: "#1066ff" },
+];
+
+const WEEKS = ["7月 8–15", "7月 16–23", "7月 24–31", "8月 1–8"];
+// 稳步上升的备考曲线：5.5 → 7.5
+const CURVE = "M0,120 C40,116 70,108 100,98 S160,80 200,66 S290,42 340,28 S400,14 440,8";
 
 export function Hero() {
   return (
