@@ -99,8 +99,8 @@
 :root {
   --radius: 1rem;
 
-  --font-heading: "Sora", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Manrope", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Akrobat", "HarmonyOS Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Akrobat", "HarmonyOS Sans SC", ui-sans-serif, system-ui, sans-serif;
 
   /* 标准色 */
   --primary: #5000ff; /* 语焉紫 */
