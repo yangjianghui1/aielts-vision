@@ -98,7 +98,7 @@ export function ReadingAnalysis() {
   const [pick8, setPick8] = useState<string>("TRUE");
   const [pick9, setPick9] = useState<string>("B");
 
-  const passage = PASSAGE_EN;
+  const passage = PASSAGE;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
