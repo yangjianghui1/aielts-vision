@@ -230,13 +230,13 @@ export function CoursesMock() {
       </div>
 
       {/* 外教直播课堂 */}
-      <div className="border-t border-border bg-card px-4 py-5 md:px-6">
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className="font-display text-lg font-extrabold">直播课堂</span>
-            <span className="text-xs text-muted-foreground">语法：副词的三个位置</span>
+      <div className="border-t border-border bg-card px-4 py-4 md:px-5">
+        <div className="mb-3 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="font-display text-base font-extrabold">直播课堂</span>
+            <span className="text-[11px] text-muted-foreground">语法：副词的三个位置</span>
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-magenta/10 px-3 py-1 text-[10px] font-bold tracking-wider text-magenta">
+          <span className="inline-flex items-center gap-1 rounded-full bg-magenta/10 px-2.5 py-0.5 text-[10px] font-bold tracking-wider text-magenta">
             <span className="breathe h-1.5 w-1.5 rounded-full bg-magenta" />
             LIVE 直播中
           </span>
