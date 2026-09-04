@@ -129,14 +129,6 @@ export function SpeakingReport() {
         ))}
       </div>
 
-      <div className="pt-4">
-        <button
-          className="w-full rounded-xl py-2.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
-          style={{ background: "var(--gradient-brand)" }}
-        >
-          免费测一次我的口语 →
-        </button>
-      </div>
     </div>
   );
 }
