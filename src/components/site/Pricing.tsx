@@ -70,8 +70,8 @@ export function Pricing() {
               style={p.featured ? { borderColor: "var(--primary)", boxShadow: "var(--shadow-lift)" } : undefined}
             >
               <span
-                className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-primary-foreground transition-colors group-hover:bg-white group-hover:text-navy ${
-                  p.featured ? "bg-primary" : "bg-ink"
+                className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-primary-foreground transition-colors group-hover:bg-white group-hover:text-primary ${
+                  p.featured ? "bg-primary" : "bg-navy"
                 }`}
               >
                 {p.badge}
