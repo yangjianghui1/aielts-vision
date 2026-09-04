@@ -43,7 +43,7 @@ export function Faq() {
           <div>
             <div className="eyebrow">FAQ</div>
             <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.1] font-extrabold">
-              报名前，大家都在问。
+              报名前，大家都在问
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               还有别的问题？加客服老师微信，真人在线答疑，领取雅思学习资料。
