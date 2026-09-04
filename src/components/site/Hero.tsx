@@ -66,11 +66,11 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#mock"
+                href="#cta"
                 className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3.5 text-sm font-semibold transition-colors hover:border-primary/50"
               >
                 <Play className="h-4 w-4 text-primary" />
-                看 90 秒演示
+                免费注册
               </a>
             </div>
           </Reveal>
