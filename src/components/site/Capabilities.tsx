@@ -5,6 +5,7 @@ import { SpeakingRecorder, SpeakingReport } from "@/components/site/SpeakingReco
 import { SampleEssays } from "@/components/site/SampleEssays";
 import { ReadingMock } from "@/components/site/ReadingMock";
 import { WritingFeedback } from "@/components/site/WritingFeedback";
+import { SpeakingSamples } from "@/components/site/SpeakingSamples";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -14,7 +15,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing";
+  panel: "score" | "speak" | "vocab" | "path" | "essay" | "mock" | "writing" | "speak-sample";
 };
 
 const CAPS: Cap[] = [
@@ -112,6 +113,10 @@ function Panel({ cap }: { cap: Cap }) {
         <SpeakingReport />
       </div>
     );
+  }
+
+  if (cap.panel === "speak-sample") {
+    return <SpeakingSamples />;
   }
 
   if (cap.panel === "vocab") {
