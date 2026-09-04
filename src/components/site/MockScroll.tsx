@@ -46,6 +46,7 @@ export function MockScroll() {
             style={{
               transform: `translateX(calc(${-progress * (CARDS.length - 1)} * (min(78vw, 24rem) + 1.5rem)))`,
               transition: "transform 120ms linear",
+              width: "max-content",
             }}
           >
             {CARDS.map((c) => (
