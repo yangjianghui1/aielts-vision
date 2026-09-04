@@ -26,7 +26,7 @@ export function MockScroll() {
           {TRACK.map((c, i) => (
             <article
               key={`${c.no}-${i}`}
-              className="surface-card lift-on-hover flex h-[22rem] w-[min(78vw,24rem)] shrink-0 flex-col overflow-hidden"
+              className="surface-card lift-on-hover flex h-[22rem] w-[min(78vw,24rem)] shrink-0 snap-center flex-col overflow-hidden"
             >
               <div
                 className="flex h-28 items-end justify-between p-5"
