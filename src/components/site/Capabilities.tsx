@@ -84,15 +84,6 @@ const CAPS: Cap[] = [
     meta: "3 个 Part · 40 题精讲",
     panel: "reading",
   },
-  {
-    id: "boost",
-    no: "08",
-    name: "200+外教课程",
-    tag: "地道口语强输出",
-    desc: "200+ 节外教直播与录播课程，覆盖听说读写与语法全类别，按类别、时长自由筛选，注册直播或随时观看回放。",
-    meta: "直播 + 回放 · 每日更新",
-    panel: "courses",
-  },
 ];
 
 function Panel({ cap }: { cap: Cap }) {
