@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { GrowBar } from "@/components/motion/CountUp";
+import { SpeakingRecorder } from "@/components/site/SpeakingRecorder";
 import { cn } from "@/lib/utils";
 
 type Cap = {
@@ -81,38 +82,7 @@ const CAPS: Cap[] = [
 
 function Panel({ cap }: { cap: Cap }) {
   if (cap.panel === "speak") {
-    return (
-      <div className="space-y-3">
-        {[
-          { who: "AI 考官", text: "Describe a skill you would like to learn.", mine: false },
-          { who: "你", text: "I'd love to learn the piano — it's been on my list…", mine: true },
-          { who: "AI 考官", text: "Good opener. Watch the linking words next sentence.", mine: false },
-        ].map((m, i) => (
-          <div key={i} className={cn("flex", m.mine && "justify-end")}>
-            <div
-              className={cn(
-                "max-w-[80%] rounded-2xl px-4 py-2.5 text-sm",
-                m.mine
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-border bg-secondary text-foreground",
-              )}
-            >
-              <div className="mb-0.5 text-[10px] font-bold tracking-wider opacity-70">{m.who}</div>
-              {m.text}
-            </div>
-          </div>
-        ))}
-        <div className="flex items-center gap-1 pt-2">
-          {Array.from({ length: 40 }).map((_, i) => (
-            <span
-              key={i}
-              className="w-1 rounded-full bg-magenta/60"
-              style={{ height: `${6 + Math.abs(Math.sin(i * 1.7)) * 26}px` }}
-            />
-          ))}
-        </div>
-      </div>
-    );
+    return <SpeakingRecorder compact />;
   }
 
   if (cap.panel === "vocab") {
