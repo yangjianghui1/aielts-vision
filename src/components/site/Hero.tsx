@@ -55,10 +55,10 @@ export function Hero() {
           <Reveal delay={200}>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#cta"
+                href="#pricing"
                 className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-bright"
               >
-                0 元快速测评
+                开通会员
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
