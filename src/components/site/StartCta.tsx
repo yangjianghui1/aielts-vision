@@ -1,5 +1,6 @@
-import { ArrowRight, MessageCircle, Music2, QrCode } from "lucide-react";
+import { ArrowRight, QrCode } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
+import { SocialLinks } from "@/components/site/SocialLinks";
 import logoAsset from "@/assets/AIELTS-logo.png.asset.json";
 
 const ENTRIES = [
