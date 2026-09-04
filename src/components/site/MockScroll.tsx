@@ -13,13 +13,16 @@ export function MockScroll() {
     <section id="mock" className="relative overflow-hidden bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto w-full max-w-6xl px-5">
         <div className="eyebrow">Learning Loop · 五步提分闭环</div>
-        <h2 className="mt-3 max-w-2xl font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold">
-          横向走完整条雅思考试链路。
+        <h2 className="mt-3 max-w-3xl font-display text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.12] font-extrabold">
+          5 步闭环备考，打通雅思完整提分路径
         </h2>
       </div>
 
-      <div className="group mt-10 w-full overflow-hidden">
-        <div className="marquee-track flex gap-6 px-5 group-hover:[animation-play-state:paused]">
+      <div className="mt-10 w-full overflow-hidden">
+        <div
+          className="flex gap-6 px-5 pb-4 overflow-x-auto snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+        >
           {TRACK.map((c, i) => (
             <article
               key={`${c.no}-${i}`}
