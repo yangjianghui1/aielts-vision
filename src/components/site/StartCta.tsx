@@ -73,7 +73,6 @@ export function StartCta() {
   );
 }
 
-const PRODUCT_LINKS = ["Mini Mock 迷你模考", "IELTS Mock Test 全真模考", "冲刺卡", "学期卡"];
 const SUPPORT_LINKS = ["服务条款", "隐私政策"];
 
 const SOCIALS = [
@@ -95,20 +94,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* 产品 */}
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-bold text-foreground">产品</h3>
-            <ul className="mt-4 space-y-2.5">
-              {PRODUCT_LINKS.map((l) => (
-                <li key={l}>
-                  <a href="#pricing" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* 支持 */}
           <div className="md:col-span-2">
             <h3 className="text-sm font-bold text-foreground">支持</h3>
@@ -124,7 +109,7 @@ export function Footer() {
           </div>
 
           {/* 联系客服 */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <h3 className="text-sm font-bold text-foreground">联系客服</h3>
             <div className="mt-4 flex h-28 w-28 items-center justify-center rounded-xl border border-border bg-white shadow-sm">
               <QrCode className="h-20 w-20 text-foreground" strokeWidth={1.2} />
@@ -135,7 +120,7 @@ export function Footer() {
           </div>
 
           {/* 关注我们 */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <h3 className="text-sm font-bold text-foreground">关注我们</h3>
             <div className="mt-4 flex gap-3">
               {SOCIALS.map((s) => (
