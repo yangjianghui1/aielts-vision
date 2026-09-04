@@ -90,40 +90,121 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* 仿真 AI 评分报告面板 */}
+        {/* 仿真学习进度面板 */}
         <Reveal delay={160}>
-          <div className="surface-card relative p-6 md:p-7" style={{ boxShadow: "var(--shadow-lift)" }}>
-            <div className="flex items-start justify-between">
-              <span className="eyebrow">AI 预估总分</span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-1 text-[10px] font-bold tracking-wider text-primary">
-                <span className="breathe h-1.5 w-1.5 rounded-full bg-accent" />
-                LIVE
-              </span>
+          <div
+            className="relative overflow-hidden rounded-2xl p-6 text-white md:p-7"
+            style={{ background: "#060633", boxShadow: "var(--shadow-lift)" }}
+          >
+            {/* 顶部切换 */}
+            <div className="flex rounded-full bg-white/10 p-1 text-xs font-semibold">
+              <span className="flex-1 rounded-full bg-white/20 py-2 text-center">所有练习</span>
+              <span className="flex-1 py-2 text-center text-white/50">仅模拟测试</span>
             </div>
 
-            <div className="mt-2 flex items-end gap-3">
-              <CountUp to={7.5} decimals={1} className="font-display text-6xl leading-none font-extrabold" />
-              <span className="pb-2 text-sm font-bold text-accent">+0.5 / 周</span>
+            {/* 分数总览 */}
+            <div className="mt-5 flex items-start justify-between">
+              <div>
+                <div className="font-display text-xl font-bold">您的进度 *</div>
+                <div className="mt-0.5 text-xs text-white/50">雅思分数段</div>
+              </div>
+              <div className="flex items-end gap-1.5 font-display leading-none">
+                <CountUp to={7.5} decimals={1} className="text-4xl font-extrabold" />
+                <span className="pb-0.5 text-lg font-bold text-white/40">/ 9.0</span>
+              </div>
             </div>
 
-            <div className="mt-7 space-y-4">
-              {CRITERIA.map((c, i) => (
-                <div key={c.label}>
-                  <div className="mb-1.5 flex justify-between text-sm">
-                    <span className="text-muted-foreground">{c.label}</span>
-                    <span className="font-display font-bold">{(c.value / 10).toFixed(1)}</span>
-                  </div>
-                  <GrowBar value={c.value} color={c.color} delay={i * 120} />
+            {/* 上升曲线 */}
+            <div className="mt-4">
+              <svg viewBox="0 0 440 140" className="w-full">
+                <defs>
+                  <linearGradient id="heroCurve" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#5000ff" />
+                    <stop offset="60%" stopColor="#dc3dbe" />
+                    <stop offset="100%" stopColor="#ffb500" />
+                  </linearGradient>
+                  <linearGradient id="heroCurveFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#5000ff" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="#5000ff" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d={`${CURVE} L440,140 L0,140 Z`} fill="url(#heroCurveFill)" />
+                <path
+                  d={CURVE}
+                  fill="none"
+                  stroke="url(#heroCurve)"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  pathLength={1}
+                  strokeDasharray={1}
+                  strokeDashoffset={1}
+                  style={{ animation: "draw-curve 1.8s ease-out 0.4s forwards" }}
+                />
+              </svg>
+              <div className="mt-1 grid grid-cols-4 text-center text-[10px] text-white/40">
+                {WEEKS.map((w) => (
+                  <span key={w}>{w}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* 四项分数 */}
+            <div className="mt-5 grid grid-cols-2 gap-2.5">
+              {SKILLS.map((s) => (
+                <div
+                  key={s.label}
+                  className="flex items-center justify-between rounded-full bg-white/10 px-4 py-2.5"
+                >
+                  <span className="flex items-center gap-2 text-xs font-semibold">
+                    <s.icon className="h-4 w-4" style={{ color: s.color }} />
+                    {s.label}
+                  </span>
+                  <span className="font-display text-lg font-bold">{s.score.toFixed(1)}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 rounded-xl border border-border bg-secondary/70 p-4">
-              <div className="eyebrow mb-1.5">AI 导师建议</div>
-              <p className="text-sm leading-relaxed">
-                「本周连贯性提升明显。下一步：在写引言前先完成 Task 2 题干改写练习。」
-              </p>
+            {/* 学习数据 */}
+            <div className="mt-4 rounded-2xl border border-white/15 p-4">
+              <div className="grid grid-cols-2 divide-x divide-white/10">
+                <div className="pr-4">
+                  <div className="flex items-center gap-1.5 text-xs text-white/50">
+                    <Clock className="h-3.5 w-3.5 text-primary-bright" />
+                    学习时长
+                  </div>
+                  <div className="mt-1 font-display text-lg font-bold">54min 14sec</div>
+                </div>
+                <div className="pl-4">
+                  <div className="flex items-center gap-1.5 text-xs text-white/50">
+                    <FileQuestion className="h-3.5 w-3.5 text-magenta" />
+                    练习题数
+                  </div>
+                  <div className="mt-1 font-display text-lg font-bold">14</div>
+                </div>
+              </div>
+              <div className="mt-3 border-t border-white/10 pt-3">
+                <div className="flex items-center gap-1.5 text-xs text-white/50">
+                  <BadgeCheck className="h-3.5 w-3.5 text-primary-bright" />
+                  最佳表现题型
+                </div>
+                <div className="mt-1 font-display text-sm font-bold">
+                  IELTS Speaking Part 2 <span className="text-white/40">/ Speaking</span>
+                </div>
+              </div>
+              <div className="mt-3 border-t border-white/10 pt-3">
+                <div className="flex items-center gap-1.5 text-xs text-white/50">
+                  <TrendingUp className="h-3.5 w-3.5 text-accent" />
+                  需改进题型
+                </div>
+                <div className="mt-1 font-display text-sm font-bold">
+                  Matching information to categories <span className="text-white/40">/ Reading</span>
+                </div>
+              </div>
             </div>
+
+            <p className="mt-3 text-[10px] leading-relaxed text-white/35">
+              * 本系统提供的分数是基于练习测试的雅思预估分数，可能与您的实际雅思考试成绩有所差异。
+            </p>
           </div>
         </Reveal>
       </div>
