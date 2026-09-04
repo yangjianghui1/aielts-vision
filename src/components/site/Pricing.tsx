@@ -107,7 +107,7 @@ export function Pricing() {
 
               <a
                 href="#cta"
-                className={`mt-7 block rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-colors group-hover:bg-white group-hover:text-navy ${
+                className={`mt-7 block rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-colors group-hover:bg-white group-hover:text-primary ${
                   p.featured ? "bg-primary text-primary-foreground" : "border border-border"
                 }`}
               >
