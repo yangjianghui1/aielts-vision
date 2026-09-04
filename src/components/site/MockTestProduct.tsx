@@ -28,7 +28,14 @@ export function MockTestProduct() {
   return (
     <section id="mocktest" className="mx-auto max-w-6xl scroll-mt-24 px-5 pt-24 md:pt-32">
       <Reveal>
-        <div className="surface-card grid gap-10 p-7 md:p-10 lg:grid-cols-[0.72fr_1.28fr]">
+        <div className="eyebrow">IELTS Mock Test</div>
+        <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">
+          一次模考，预估考分并定位薄弱环节
+        </h2>
+      </Reveal>
+
+      <Reveal>
+        <div className="surface-card mt-12 grid gap-10 p-7 md:p-10 lg:grid-cols-[0.72fr_1.28fr]">
           {/* 左：产品信息 */}
           <div className="lg:border-r lg:border-border lg:pr-10">
             <div className="flex items-center gap-3">
@@ -39,7 +46,6 @@ export function MockTestProduct() {
                 <Sparkles className="h-6 w-6 text-accent" />
               </span>
               <div>
-                <div className="eyebrow">IELTS Mock Test</div>
                 <h3 className="font-display text-2xl font-extrabold md:text-3xl">全真模考</h3>
               </div>
             </div>
@@ -77,12 +83,10 @@ export function MockTestProduct() {
 
           {/* 右：说明与预览 */}
           <div>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-[1.15] font-extrabold">
-              一次模考，预估考分并定位薄弱环节
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="text-sm leading-relaxed text-muted-foreground">
               不仅完成一套题，还能熟悉真实考试路径、定位分数短板，并看懂不同目标分数之间的答案差异。
             </p>
+
 
             <div className="mt-7 grid gap-5 md:grid-cols-3">
               {/* 预览 1：机考界面 */}
