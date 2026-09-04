@@ -12,7 +12,7 @@ type Cap = {
   tag: string;
   desc: string;
   meta: string;
-  panel: "score" | "speak" | "vocab" | "path";
+  panel: "score" | "speak" | "vocab" | "path" | "essay";
 };
 
 const CAPS: Cap[] = [
@@ -35,8 +35,17 @@ const CAPS: Cap[] = [
     panel: "score",
   },
   {
-    id: "speaking",
+    id: "essay",
     no: "03",
+    name: "AI 写作范文",
+    tag: "分数段范文对比",
+    desc: "同一道题，对照 5 到 9 分真实范文与逐维度评语，看清每一分差距到底差在哪。",
+    meta: "4 个分数段",
+    panel: "essay",
+  },
+  {
+    id: "speaking",
+    no: "04",
     name: "AI 口语评分",
     tag: "Part 1–3 全流程",
     desc: "与 AI 考官完成三部分口语模考，逐句转写，反馈流利度、发音、词汇广度与语法。",
@@ -45,7 +54,7 @@ const CAPS: Cap[] = [
   },
   {
     id: "lr",
-    no: "04",
+    no: "05",
     name: "听力阅读分析",
     tag: "定位到题型",
     desc: "TFNG、Matching Headings、Y/N/NG —— 精确到拖慢你的那一类题，而不是泛泛刷套题。",
