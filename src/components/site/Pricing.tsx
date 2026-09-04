@@ -58,7 +58,7 @@ export function Pricing() {
       <Reveal>
         <div className="eyebrow">Membership</div>
         <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">
-          两档会员，按备考周期选择。
+          两档会员，按备考周期选择
         </h2>
       </Reveal>
 
