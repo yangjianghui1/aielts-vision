@@ -176,8 +176,8 @@ export function MockTestProduct() {
                   ))}
                 </div>
                 <div className="mt-2.5 grid grid-cols-2 gap-2">
-                  <div className="rounded-xl border-l-2 border-magenta bg-card p-2.5">
-                    <div className="text-[9px] font-bold text-magenta">分数段：7</div>
+                  <div className="rounded-xl border-l-2 border-primary bg-card p-2.5">
+                    <div className="text-[9px] font-bold text-primary">分数段：7</div>
                     <p className="mt-1.5 text-[8px] leading-relaxed text-muted-foreground">
                       结构清晰，观点完整；继续加强词汇变化和句式准确性。
                     </p>
@@ -189,7 +189,7 @@ export function MockTestProduct() {
                         <div key={i} className="h-1 rounded-full bg-secondary" style={{ width: `${w}%` }} />
                       ))}
                     </div>
-                    <div className="mt-2.5 rounded-lg bg-magenta/10 p-1.5 text-[8px] font-semibold text-magenta">
+                    <div className="mt-2.5 rounded-lg bg-primary/10 p-1.5 text-[8px] font-semibold text-primary">
                       重点表达与句型已标注
                     </div>
                   </div>
