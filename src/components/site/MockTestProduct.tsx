@@ -89,10 +89,10 @@ export function MockTestProduct() {
               <div className="rounded-2xl border border-border bg-secondary/40 p-3">
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-[11px] font-bold">
-                    <span className="grid h-4 w-4 place-items-center rounded bg-magenta text-[9px] text-white">R</span>
+                    <span className="grid h-4 w-4 place-items-center rounded bg-primary text-[9px] text-white">R</span>
                     Reading · Part 1
                   </span>
-                  <span className="font-display text-[10px] font-bold tabular-nums text-magenta">01:58:22</span>
+                  <span className="font-display text-[10px] font-bold tabular-nums text-primary">01:58:22</span>
                 </div>
                 <div className="mt-2.5 grid grid-cols-2 gap-2">
                   <div className="rounded-xl bg-card p-2.5">
@@ -109,13 +109,13 @@ export function MockTestProduct() {
                       {["Option A", "Option B", "Option C"].map((o, i) => (
                         <div key={o} className="flex items-center gap-1.5">
                           <span
-                            className={`h-2 w-2 rounded-full border ${i === 1 ? "border-magenta bg-magenta" : "border-border"}`}
+                            className={`h-2 w-2 rounded-full border ${i === 1 ? "border-primary bg-primary" : "border-border"}`}
                           />
                           {o}
                         </div>
                       ))}
                     </div>
-                    <div className="mt-2.5 rounded-lg bg-magenta/10 p-1.5 text-[8px] leading-tight font-semibold text-magenta">
+                    <div className="mt-2.5 rounded-lg bg-primary/10 p-1.5 text-[8px] leading-tight font-semibold text-primary">
                       AI 反馈
                       <br />
                       自动定位易错点
