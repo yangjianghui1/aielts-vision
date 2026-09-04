@@ -1,32 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/utils";
-
-type Phase = "idle" | "recording" | "scored";
-
-const PARTS = [
-  {
-    id: 1,
-    label: "Part 1",
-    sub: "日常问答",
-    question: "Do you prefer studying in the morning or at night?",
-    hint: "4–5 分钟 · 熟悉话题",
-  },
-  {
-    id: 2,
-    label: "Part 2",
-    sub: "个人陈述",
-    question: "Describe a skill you would like to learn.",
-    hint: "1 分钟准备 + 2 分钟陈述",
-  },
-  {
-    id: 3,
-    label: "Part 3",
-    sub: "深入讨论",
-    question: "Why do some people find it hard to keep learning new skills?",
-    hint: "4–5 分钟 · 抽象讨论",
-  },
-];
 
 const DIMS = [
   { l: "流利度与连贯性", v: 6.5, c: "var(--primary)" },
@@ -54,7 +28,7 @@ const FEEDBACK = [
   },
 ];
 
-function ScoreRing({ value, active }: { value: number; active: boolean }) {
+function ScoreRing({ value }: { value: number }) {
   const R = 84;
   const C = 2 * Math.PI * R;
   const pct = value / 9;
@@ -70,7 +44,7 @@ function ScoreRing({ value, active }: { value: number; active: boolean }) {
         strokeWidth="14"
         strokeLinecap="round"
         strokeDasharray={C}
-        strokeDashoffset={active ? C * (1 - pct) : C}
+        strokeDashoffset={C * (1 - pct)}
         style={{ transition: "stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1) 0.2s" }}
       />
     </svg>
@@ -78,41 +52,18 @@ function ScoreRing({ value, active }: { value: number; active: boolean }) {
 }
 
 export function SpeakingLab() {
-  const [part, setPart] = useState(1); // index into PARTS
-  const [phase, setPhase] = useState<Phase>("idle");
-  const [seconds, setSeconds] = useState(0);
   const [open, setOpen] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const start = () => {
-    setPhase("recording");
-    setSeconds(0);
-  };
-  const stop = () => setPhase("scored");
-
-  useEffect(() => {
-    if (phase === "recording") {
-      timerRef.current = setInterval(() => setSeconds((s) => s + 1), 1000);
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [phase]);
-
-  const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
-  const ss = String(seconds % 60).padStart(2, "0");
-  const p = PARTS[part]!;
 
   return (
     <section id="speaking" className="bg-secondary/40 py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
-          <div className="eyebrow">Speaking Lab · AI 口语评分</div>
+          <div className="eyebrow">Speaking Lab · AI 口语评分报告</div>
           <h2 className="mt-3 max-w-2xl font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">
             说完，立刻知道考官会怎么打分。
           </h2>
           <p className="mt-4 max-w-xl text-muted-foreground">
-            从 Part 1 到 Part 3 全流程录音模考，AI 考官按官方四项评分标准逐条反馈 —— 点「开始作答」亲自走一遍流程。
+            从 Part 1 到 Part 3 全流程录音模考，AI 考官按官方四项评分标准逐条反馈 —— 上面「AI 口语评分」里可以亲自走一遍录音流程。
           </p>
         </Reveal>
 
@@ -134,37 +85,26 @@ export function SpeakingLab() {
 
               <div className="mt-6 flex items-center gap-7">
                 <div className="relative shrink-0">
-                  <ScoreRing value={6.5} active={phase === "scored"} />
+                  <ScoreRing value={6.5} />
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-[10px] font-bold tracking-wider text-muted-foreground">您的分数</span>
-                    <span
-                      className={cn(
-                        "font-display text-5xl font-extrabold transition-all duration-700",
-                        phase === "scored" ? "text-foreground" : "text-muted-foreground/40",
-                      )}
-                    >
-                      {phase === "scored" ? "6.5" : "—"}
-                    </span>
+                    <span className="font-display text-5xl font-extrabold text-foreground">6.5</span>
                   </div>
                 </div>
                 <ul className="flex-1 space-y-3">
                   {DIMS.map((d, i) => (
                     <li key={d.l} className="flex items-center gap-3">
                       <span
-                        className={cn(
-                          "font-display w-8 shrink-0 text-sm font-extrabold tabular-nums transition-all duration-500",
-                          phase === "scored" ? "text-foreground" : "text-muted-foreground/40",
-                        )}
-                        style={{ transitionDelay: `${300 + i * 120}ms` }}
+                        className="font-display w-8 shrink-0 text-sm font-extrabold tabular-nums text-foreground"
                       >
-                        {phase === "scored" ? d.v.toFixed(1) : "—"}
+                        {d.v.toFixed(1)}
                       </span>
                       <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-border">
                         <div
                           className="h-full rounded-full"
                           style={{
                             background: d.c,
-                            width: phase === "scored" ? `${(d.v / 9) * 100}%` : "0%",
+                            width: `${(d.v / 9) * 100}%`,
                             transition: `width 1s cubic-bezier(0.16,1,0.3,1) ${300 + i * 120}ms`,
                           }}
                         />
@@ -186,7 +126,7 @@ export function SpeakingLab() {
                       <span className="font-display text-sm font-bold text-primary">{f.t}</span>
                       <span className="flex items-center gap-3 text-sm">
                         <span className="text-xs text-muted-foreground">得分</span>
-                        <span className="font-display font-extrabold">{i === 3 ? "7.0" : i === 2 ? "6.0" : i === 1 ? "6.5" : "6.5"}</span>
+                        <span className="font-display font-extrabold">{i === 3 ? "7.0" : i === 2 ? "6.0" : "6.5"}</span>
                         <svg
                           width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
                           className={cn("transition-transform", open === i && "rotate-180")}
@@ -209,7 +149,6 @@ export function SpeakingLab() {
 
               <div className="mt-auto pt-5">
                 <button
-                  onClick={start}
                   className="w-full rounded-xl py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
                   style={{ background: "var(--gradient-brand)" }}
                 >
