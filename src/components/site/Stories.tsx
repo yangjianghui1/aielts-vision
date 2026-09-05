@@ -42,7 +42,7 @@ function Card({ s }: { s: Story }) {
 
 export function Stories() {
   return (
-    <section id="stories" className="overflow-hidden py-14 md:py-20">
+    <section id="stories" className="overflow-hidden py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <div className="eyebrow">Stories</div>
@@ -52,7 +52,7 @@ export function Stories() {
         </Reveal>
       </div>
 
-      <div className="mt-10 space-y-5">
+      <div className="mt-7 space-y-4">
         <Marquee items={ROW_A.map((s) => <Card key={s.name} s={s} />)} />
         <Marquee reverse items={ROW_B.map((s) => <Card key={s.name} s={s} />)} />
       </div>
