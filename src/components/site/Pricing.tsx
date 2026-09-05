@@ -54,7 +54,7 @@ const TOKENS = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 md:py-32">
+    <section id="pricing" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 md:py-24">
       <Reveal>
         <div className="eyebrow">Membership</div>
         <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">
@@ -62,7 +62,7 @@ export function Pricing() {
         </h2>
       </Reveal>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
         {PLANS.map((p, i) => (
           <Reveal key={p.name} delay={i * 90}>
             <div
@@ -131,7 +131,7 @@ export function Pricing() {
       </Reveal>
 
       <Reveal delay={120}>
-        <div className="mt-16">
+        <div className="mt-12">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <div className="eyebrow">AI Credits</div>
