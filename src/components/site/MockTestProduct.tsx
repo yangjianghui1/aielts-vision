@@ -26,7 +26,7 @@ function Bar() {
 
 export function MockTestProduct() {
   return (
-    <section id="mocktest" className="mx-auto max-w-6xl scroll-mt-24 px-5 pt-24 md:pt-32">
+    <section id="mocktest" className="mx-auto max-w-6xl scroll-mt-24 px-5 pt-16 md:pt-24">
       <Reveal>
         <div className="eyebrow">IELTS Mock Test</div>
         <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] font-extrabold">

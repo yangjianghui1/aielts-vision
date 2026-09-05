@@ -22,7 +22,7 @@ const CURVE = "M0,120 C40,116 70,108 100,98 S160,80 200,66 S290,42 340,28 S400,1
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+    <section id="top" className="relative overflow-hidden pt-24 pb-14 md:pt-32 md:pb-20">
       <div className="grid-bg pointer-events-none absolute inset-0 opacity-60" />
       <div
         className="pointer-events-none absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full opacity-25 blur-3xl"
