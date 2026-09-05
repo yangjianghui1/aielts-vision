@@ -28,7 +28,7 @@ const POSTS = [
 
 export function Insights() {
   return (
-    <section id="insights" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 md:py-24">
+    <section id="insights" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-14 md:py-20">
       <Reveal>
         <div>
           <div className="eyebrow">IELTS Insights</div>
