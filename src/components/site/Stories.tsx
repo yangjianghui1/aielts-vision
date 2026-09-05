@@ -52,7 +52,7 @@ export function Stories() {
         </Reveal>
       </div>
 
-      <div className="mt-10 space-y-5">
+      <div className="mt-7 space-y-4">
         <Marquee items={ROW_A.map((s) => <Card key={s.name} s={s} />)} />
         <Marquee reverse items={ROW_B.map((s) => <Card key={s.name} s={s} />)} />
       </div>
