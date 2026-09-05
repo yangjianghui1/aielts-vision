@@ -42,7 +42,7 @@ function Card({ s }: { s: Story }) {
 
 export function Stories() {
   return (
-    <section id="stories" className="overflow-hidden py-14 md:py-20">
+    <section id="stories" className="overflow-hidden py-10 md:py-14">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <div className="eyebrow">Stories</div>
