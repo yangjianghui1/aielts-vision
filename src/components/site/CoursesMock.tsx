@@ -138,19 +138,9 @@ export function CoursesMock() {
 
   return (
     <div className="space-y-3">
-      {/* 搜索与筛选 */}
+      {/* 筛选 */}
       <div className="rounded-xl border border-border bg-card p-3">
-        <div className="relative">
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="搜索课程..."
-            className="w-full rounded-lg border border-border bg-secondary/50 py-2 pl-3 pr-9 text-xs outline-none focus:border-primary/40"
-          />
-          <Search className="absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
-        </div>
-
-        <div className="mt-3 flex items-start gap-2">
+        <div className="flex items-start gap-2">
           <span className="mt-1 w-8 shrink-0 text-[11px] text-muted-foreground">类别：</span>
           <div className="flex flex-wrap gap-1.5">
             {CATEGORIES.map((c) => (
