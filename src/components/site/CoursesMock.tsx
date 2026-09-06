@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Clock, Maximize2, Pause, Play, Search, Volume2 } from "lucide-react";
+import { Clock, Maximize2, Pause, Play, Volume2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Course = {
@@ -114,7 +114,6 @@ function inDuration(minutes: number, label: string) {
 }
 
 export function CoursesMock() {
-  const [query, setQuery] = useState("");
   const [category, setCategory] = useState("全部");
   const [duration, setDuration] = useState("全部时长");
   const [reserved, setReserved] = useState<Record<string, boolean>>({});
@@ -124,7 +123,6 @@ export function CoursesMock() {
     const list = COURSES.filter((c) => {
       if (category !== "全部" && c.category !== category) return false;
       if (!inDuration(c.minutes, duration)) return false;
-      if (query && !c.title.includes(query) && !c.desc.includes(query)) return false;
       return true;
     });
     const map = new Map<string, Course[]>();
@@ -134,7 +132,7 @@ export function CoursesMock() {
       map.set(c.day, arr);
     }
     return [...map.entries()];
-  }, [query, category, duration]);
+  }, [category, duration]);
 
   return (
     <div className="space-y-3">
