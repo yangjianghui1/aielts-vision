@@ -215,7 +215,7 @@ export function Hero() {
             </div>
 
             <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground/70">
-              * 本系统提供的分数是基于练习测试的雅思预估分数，可能与您的实际雅思考试成绩有所差异。
+              * 本系统将记录您模拟考试及练习的预估分数、可视化统计成绩提升曲线。
             </p>
           </div>
         </Reveal>
