@@ -62,7 +62,7 @@ const CAPS: Cap[] = [
     id: "speak-sample",
     no: "05",
     name: "AI 口语范文",
-    tag: "真人现场示范",
+    tag: "考场模拟示范",
     desc: "真人考官视角的口语示范视频，对照 5.5 与 6 分现场表现，逐分数段读解官方评分描述，看清差距到底在哪。",
     meta: "示范视频 + 评分描述",
     panel: "speak-sample",
