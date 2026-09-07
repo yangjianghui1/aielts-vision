@@ -96,11 +96,6 @@ export function Hero() {
             className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-5 tracking-tight backdrop-blur-xl md:p-6"
             style={{ boxShadow: "var(--shadow-lift)" }}
           >
-            {/* 顶部切换 */}
-            <div className="flex rounded-full bg-muted p-1 text-[11px] font-semibold">
-              <span className="flex-1 rounded-full bg-background py-1.5 text-center shadow-sm">所有练习</span>
-              <span className="flex-1 py-1.5 text-center text-muted-foreground">仅模拟测试</span>
-            </div>
 
             {/* 分数总览 */}
             <div className="mt-4 flex items-start justify-between">
