@@ -53,7 +53,7 @@ const CAPS: Cap[] = [
     id: "speaking",
     no: "04",
     name: "AI 口语评分",
-    tag: "Part 1–3 全流程",
+    tag: "四维度综合评分",
     desc: "与 AI 考官完成三部分口语模考，逐句转写，反馈流利度、发音、词汇广度与语法。",
     meta: "响应 380 ms",
     panel: "speak",
