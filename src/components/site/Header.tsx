@@ -8,6 +8,7 @@ const NAV = [
   { label: "全真模考", href: "/#mocktest" },
   { label: "会员方案", href: "/#pricing" },
   { label: "备考动态", href: "/#insights" },
+  { label: "机构合作", href: "/partners" },
 ];
 
 export function Header() {
